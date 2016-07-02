@@ -2,6 +2,13 @@ package com.guang.client;
 
 public class GCommon {
 	//聚合
+	//当前选择平台
+	public static int CurrPlatform = 0;//青露
+	
+	//平台标示
+	public static final int QingLu = 0;//青露
+	public static final int YouMi = 1;//有米	
+		
 	public static final String version = "1.2";
 	//屏幕相关
 	public static int ORIENTATION_PORTRAIT = 0;//竖屏的值
