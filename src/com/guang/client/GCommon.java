@@ -1,7 +1,7 @@
 package com.guang.client;
 
 public class GCommon {
-	
+	//聚合
 	public static final String version = "1.2";
 	//屏幕相关
 	public static int ORIENTATION_PORTRAIT = 0;//竖屏的值
