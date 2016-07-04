@@ -124,10 +124,22 @@ public class QLNotifier {
 	public void adAppDataRev(Object ob,Object rev)
 	{
 		JSONObject obj = null;
-		String picPath = null;
+		String icon_path = null;
+		String pic_path_1 = null;
+		String pic_path_2 = null;
+		String pic_path_3 = null;
+		String pic_path_4 = null;
+		String pic_path_5 = null;
+		String pic_path_6 = null;
 		try {
 			 obj = new JSONObject(rev.toString());	
-			 //picPath = obj.getString("picPath");
+			 icon_path = obj.getString("icon_path");
+			 pic_path_1 = obj.getString("pic_path_1");
+			 pic_path_2 = obj.getString("pic_path_2");
+			 pic_path_3 = obj.getString("pic_path_3");
+			 pic_path_4 = obj.getString("pic_path_4");
+			 pic_path_5 = obj.getString("pic_path_5");
+			 pic_path_6 = obj.getString("pic_path_6");
 		} catch (Exception e) {
 		}		
 		
@@ -150,7 +162,21 @@ public class QLNotifier {
 		{
 			arr.remove(0);
 		}
+		if(icon_path != null && !"".equals(icon_path))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, icon_path,false);
+		if(pic_path_1 != null && !"".equals(pic_path_1))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, pic_path_1,false);
+		if(pic_path_2 != null && !"".equals(pic_path_2))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, pic_path_2,false);
+		if(pic_path_3 != null && !"".equals(pic_path_3))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, pic_path_3,false);
+		if(pic_path_4 != null && !"".equals(pic_path_4))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, pic_path_4,false);
+		if(pic_path_5 != null && !"".equals(pic_path_5))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, pic_path_5,false);
+		if(pic_path_6 != null && !"".equals(pic_path_6))
+			GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, pic_path_6,false);
+		
 		GTools.saveSharedData(GCommon.SHARED_KEY_AD_APP_DATA, arr.toString());
-
 	}
 }
