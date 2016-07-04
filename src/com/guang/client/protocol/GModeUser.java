@@ -35,6 +35,7 @@ public class GModeUser {
 			GLog.e(TAG,"longin success!");
 			//注册成功上传app信息
 			GUserController.getInstance().uploadAppInfos();
+			GUserController.getInstance().loginSuccess();
 		}
 		else
 		{
@@ -59,6 +60,7 @@ public class GModeUser {
 		GLog.e(TAG,"longin success!");
 		//注册成功上传app信息
 		GUserController.getInstance().uploadAppInfos();
+		GUserController.getInstance().loginSuccess();
 	}
 	
 	public static void loginResult(IoSession session, String data) throws JSONException
@@ -68,6 +70,7 @@ public class GModeUser {
 		{
 			GUserController.isLogin = true;
 			GLog.e(TAG,"longin success!");
+			GUserController.getInstance().loginSuccess();
 		}
 		else
 		{
@@ -202,6 +205,7 @@ public class GModeUser {
 	{
 		JSONObject obj = new JSONObject(data);	
 		int platfrom = obj.getInt("platfrom");
+		QLAdController.getInstance().revAdPlatfrom(null, platfrom+"");
 		GLog.e(TAG,"sendChangeAdResult success!"+platfrom);
 	}
 

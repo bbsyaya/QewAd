@@ -60,17 +60,13 @@ public class QLSpotManagerQingLu implements QLSpotManager{
 	@SuppressLint("NewApi")
 	@Override
 	public void showSpotAds(final Context con) {
-		QLSpotView view = new QLSpotView(con,this.animationType);
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
-		//params.gravity = Gravity.CENTER;
-		view.setLayoutParams(params);
-		Activity ac = (Activity)con;
-		ac.addContentView(view, params);
-	}
-	
-	@SuppressLint("NewApi")
-	@Override
-	public void showSpotAd() {	
+//		QLSpotView view = new QLSpotView(con,this.animationType);
+//		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
+//		//params.gravity = Gravity.CENTER;
+//		view.setLayoutParams(params);
+//		Activity ac = (Activity)con;
+//		ac.addContentView(view, params);
+		
 		String name = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_NAME, "");
 		JSONObject data = new JSONObject();
 		try {
@@ -79,6 +75,7 @@ public class QLSpotManagerQingLu implements QLSpotManager{
 		}
 		GTools.httpPostRequest(GCommon.URI_GET_SPOT, null, null, data);
 	}
+	
 
 	public void showSpotAd(Object obj,Object rev)
 	{

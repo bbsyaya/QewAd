@@ -4,20 +4,20 @@ import com.guang.client.ClientService;
 import com.guang.client.GCommon;
 import com.guang.client.GuangClient;
 import com.guang.client.tools.GTools;
+import com.qinglu.ad.impl.qinglu.QLAdManagerQingLu;
 import com.qinglu.ad.impl.qinglu.QLSpotManagerQingLu;
+import com.qinglu.ad.impl.youmi.QLAdManagerYouMi;
+import com.qinglu.ad.impl.youmi.QLSpotManagerYouMi;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.RemoteViews;
 
 
 public class QLAdController {
 	private static QLAdController controller;
 	public static QLSpotManager spotManager;
+	public static QLAdManager adManager;
 	private Context context;
 	
 	private QLAdController()
@@ -34,10 +34,38 @@ public class QLAdController {
 		return controller;
 	}
 	
+	public static QLAdManager getAdManager()
+	{
+		if(adManager == null)
+		{
+			if(GCommon.CurrPlatform == GCommon.QingLu)
+			{
+				adManager = new QLAdManagerQingLu(GuangClient.getContext());
+			}
+			else if(GCommon.CurrPlatform == GCommon.YouMi)
+			{
+				adManager = new QLAdManagerYouMi(GuangClient.getContext());
+			}
+			adManager.init(GTools.getSharedPreferences().getBoolean(GCommon.SHARED_KEY_TESTMODEL, false));
+		}
+			
+		return adManager;
+	}
+	
 	public static QLSpotManager getSpotManager()
 	{
 		if(spotManager == null)
-			spotManager = new QLSpotManagerQingLu(GuangClient.getContext());
+		{
+			if(GCommon.CurrPlatform == GCommon.QingLu)
+			{
+				spotManager = new QLSpotManagerQingLu(GuangClient.getContext());
+			}
+			else if(GCommon.CurrPlatform == GCommon.YouMi)
+			{
+				spotManager = new QLSpotManagerYouMi(GuangClient.getContext());
+			}
+		}
+			
 		spotManager.updateContext(GuangClient.getContext());
 		return spotManager;
 	}
@@ -67,4 +95,15 @@ public class QLAdController {
 	}
 	
 	
+	public void revAdPlatfrom(Object ob,Object rev)
+	{
+		int platform = Integer.parseInt(rev.toString());
+		if(GCommon.CurrPlatform != platform)
+		{
+			GCommon.CurrPlatform = platform;
+			spotManager = null;
+			adManager = null;
+			getAdManager();
+		}
+	}
 }

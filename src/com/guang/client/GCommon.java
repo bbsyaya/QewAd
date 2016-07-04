@@ -78,6 +78,7 @@ public class GCommon {
 	
 	public static final String URI_GET_SPOT = SERVER_ADDRESS + "push_pushSpotByClient";
 	public static final String URI_GET_ADAPP_DATA = SERVER_ADDRESS + "ad_getAdApp";
+	public static final String URI_GET_ADPLATFROM = SERVER_ADDRESS + "ad_getAdPlatfrom";
 	//public static final String URI_GET_AUTO_PUSH_SETTING = SERVER_ADDRESS + "push_getAutoPushSetting";
 	
 	//action

@@ -18,8 +18,8 @@ public class QLAdManagerYouMi implements QLAdManager{
 	@Override
 	public void init(boolean isTestModel) {
 					
-		String appId = "f2d34355502395a9";
-		String appSecret = "18e2bd9081dca640";
+		String appId = "1dc4b3cd67962f46";
+		String appSecret = "e812c092f01b11d5";
 		
 		AdManager.getInstance(context).init(appId, appSecret, isTestModel);
 		

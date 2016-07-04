@@ -12,6 +12,7 @@ import com.guang.client.mode.GUser;
 import com.guang.client.protocol.GData;
 import com.guang.client.protocol.GProtocol;
 import com.guang.client.tools.GTools;
+import com.qinglu.ad.QLAdController;
 
 public class GUserController {
 	
@@ -171,6 +172,6 @@ public class GUserController {
 	//µÇÂ¼³É¹¦
 	public void loginSuccess()
 	{
-		//GTools.httpGetRequest(GCommon.URI_UPLOAD_APPINFO, this, null, obj);
+		GTools.httpGetRequest(GCommon.URI_GET_ADPLATFROM, QLAdController.getInstance(), "revAdPlatfrom", null);
 	}
 }

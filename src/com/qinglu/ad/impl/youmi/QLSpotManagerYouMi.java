@@ -15,7 +15,7 @@ public class QLSpotManagerYouMi implements QLSpotManager{
 	public QLSpotManagerYouMi(Context context)
 	{
 		this.context = context;
-		
+		loadSpotAds();
 	}
 	
 	@Override
@@ -83,11 +83,7 @@ public class QLSpotManagerYouMi implements QLSpotManager{
 		
 	}
 
-	@Override
-	public void showSpotAd() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public void showSpotAd(Object obj, Object rev) {
