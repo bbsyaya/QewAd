@@ -9,7 +9,7 @@ public class GCommon {
 	public static final int QingLu = 0;//青露
 	public static final int YouMi = 1;//有米	
 		
-	public static final String version = "1.2";
+	public static final String version = "1.3";
 	//屏幕相关
 	public static int ORIENTATION_PORTRAIT = 0;//竖屏的值
 	public static int ORIENTATION_LANDSCAPE = 1;//横屏的值
