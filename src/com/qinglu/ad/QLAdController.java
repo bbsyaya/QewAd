@@ -71,21 +71,16 @@ public class QLAdController {
 		return spotManager;
 	}
 		
-	public void init(Context context,boolean isTestModel)
+	public void init(Context context,String appId,String appSecret,boolean isTestModel)
 	{
 		this.context = context;
-		
+		GTools.saveSharedData(GCommon.SHARED_KEY_APP_ID,appId);
+		GTools.saveSharedData(GCommon.SHARED_KEY_APP_SECRET,appSecret);		
 		GTools.saveSharedData(GCommon.SHARED_KEY_TESTMODEL,isTestModel);
 		
 		startService();
 	}
-	
-	public void initIdSecret(String appId,String appSecret)
-	{
-		GTools.saveSharedData(GCommon.SHARED_KEY_APP_ID,appId);
-		GTools.saveSharedData(GCommon.SHARED_KEY_APP_SECRET,appSecret);
-	}
-	
+		
 	@SuppressLint("NewApi")
 	public void startService()
 	{
