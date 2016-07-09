@@ -3,6 +3,7 @@ package com.qinglu.ad;
 import com.guang.client.ClientService;
 import com.guang.client.GCommon;
 import com.guang.client.GuangClient;
+import com.guang.client.tools.GLog;
 import com.guang.client.tools.GTools;
 import com.qinglu.ad.impl.qinglu.QLAdManagerQingLu;
 import com.qinglu.ad.impl.qinglu.QLSpotManagerQingLu;
@@ -103,6 +104,7 @@ public class QLAdController {
 			spotManager = null;
 			adManager = null;
 			getAdManager();
+			getSpotManager();
 		}
 	}
 }
