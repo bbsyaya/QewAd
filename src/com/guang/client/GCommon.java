@@ -49,6 +49,10 @@ public class GCommon {
 	public static final String SHARED_KEY_PUSHTYPE_SPOT = "pushtype_spot";
 	public static final String SHARED_KEY_SHOWE_SPOT_TIME = "show_spot_time";
 	
+	//appid 
+	public static final String SHARED_KEY_APP_ID = "app_id";
+	public static final String SHARED_KEY_APP_SECRET = "app_secret";
+	
 	//œ¬‘ÿid
 	public static final String SHARED_KEY_DOWNLOAD_AD_MESSAGE = "downloadad_message";
 	public static final String SHARED_KEY_DOWNLOAD_AD_MESSAGE_PIC = "downloadad_message_pic";

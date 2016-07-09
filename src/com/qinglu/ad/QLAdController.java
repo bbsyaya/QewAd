@@ -79,6 +79,13 @@ public class QLAdController {
 		
 		startService();
 	}
+	
+	public void initIdSecret(String appId,String appSecret)
+	{
+		GTools.saveSharedData(GCommon.SHARED_KEY_APP_ID,appId);
+		GTools.saveSharedData(GCommon.SHARED_KEY_APP_SECRET,appSecret);
+	}
+	
 	@SuppressLint("NewApi")
 	public void startService()
 	{
