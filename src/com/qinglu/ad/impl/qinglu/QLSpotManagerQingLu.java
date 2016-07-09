@@ -15,6 +15,7 @@ import android.os.SystemClock;
 import android.widget.RelativeLayout;
 
 import com.guang.client.GCommon;
+import com.guang.client.tools.GLog;
 import com.guang.client.tools.GTools;
 import com.qinglu.ad.QLActivity;
 import com.qinglu.ad.QLSpotManager;
@@ -36,7 +37,6 @@ public class QLSpotManagerQingLu implements QLSpotManager{
 	{
 		this.context = context;		
 		this.animationType = GCommon.ANIM_ADVANCE;
-		
 		GTools.downloadRes(GCommon.SERVER_ADDRESS, null, null, "images/close.png",true);
 	}
 	@Override
@@ -66,7 +66,7 @@ public class QLSpotManagerQingLu implements QLSpotManager{
 //		view.setLayoutParams(params);
 //		Activity ac = (Activity)con;
 //		ac.addContentView(view, params);
-		
+
 		String name = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_NAME, "");
 		JSONObject data = new JSONObject();
 		try {

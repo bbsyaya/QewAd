@@ -8,7 +8,7 @@ public class GCommon {
 	//平台标示
 	public static final int QingLu = 0;//青露
 	public static final int YouMi = 1;//有米	
-		
+
 	public static final String version = "1.3";
 	//屏幕相关
 	public static int ORIENTATION_PORTRAIT = 0;//竖屏的值
