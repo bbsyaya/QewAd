@@ -23,6 +23,7 @@ public class GCommon {
 	public static final String INTENT_PUSH_MESSAGE = "INTENT_PUSH_MESSAGE";
 	public static final String INTENT_PUSH_MESSAGE_PIC = "INTENT_PUSH_MESSAGE_PIC";
 	public static final String INTENT_PUSH_SPOT = "INTENT_PUSH_SPOT";
+	public static final String INTENT_PUSH_SPOT_YM = "INTENT_PUSH_SPOT_YM";
 	
 	public static final int PUSH_TYPE_MESSAGE = 0;
 	public static final int PUSH_TYPE_SPOT = 1;

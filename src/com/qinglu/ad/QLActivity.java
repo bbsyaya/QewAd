@@ -73,6 +73,9 @@ public class QLActivity extends Activity {
 				e.printStackTrace();
 			}
 		}
+		else if (GCommon.INTENT_PUSH_SPOT_YM.equals(type)) {
+			QLAdController.getSpotManager().showSpotAds(this, new MySpotDialogListenerYM());
+		}
 	}
 
 	private void spot() {
@@ -178,5 +181,32 @@ public class QLActivity extends Activity {
 
 	}
 	
+	
+	class MySpotDialogListenerYM implements QLSpotDialogListener{
+
+		@Override
+		public void onShowSuccess() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onShowFailed() {
+			Activity act = (Activity) context;
+			act.finish();
+		}
+
+		@Override
+		public void onSpotClosed() {
+			Activity act = (Activity) context;
+			act.finish();
+		}
+
+		@Override
+		public void onSpotClick(boolean isWebPath) {
+			
+		}
+		
+	}
 	
 }

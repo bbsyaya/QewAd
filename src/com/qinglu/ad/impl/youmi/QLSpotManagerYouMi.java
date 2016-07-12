@@ -3,7 +3,11 @@ package com.qinglu.ad.impl.youmi;
 import net.youmi.android.spot.SpotManager;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 
+import com.guang.client.GCommon;
+import com.qinglu.ad.QLActivity;
+import com.qinglu.ad.QLAdController;
 import com.qinglu.ad.QLSpotManager;
 import com.qinglu.ad.listener.QLSpotDialogListener;
 
@@ -87,8 +91,10 @@ public class QLSpotManagerYouMi implements QLSpotManager{
 
 	@Override
 	public void showSpotAd(Object obj, Object rev) {
-		// TODO Auto-generated method stub
-		
+		Intent intent = new Intent(this.context, QLActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.putExtra(GCommon.INTENT_TYPE, GCommon.INTENT_PUSH_SPOT_YM);
+		this.context.startActivity(intent);
 	}
 
 	
