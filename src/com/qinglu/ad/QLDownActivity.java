@@ -101,7 +101,12 @@ public class QLDownActivity extends Activity {
 		context = this; 
 		//Æô¶¯·þÎñ	
 		startService(new Intent(context,ClientService.class));
-		QLAdController.getInstance().init(this, true);
+		
+		String appId = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_APP_ID, ""); 
+		String appSecret = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_APP_SECRET, "");
+		
+		QLAdController.getInstance().init(this,appId,appSecret, true);
+		
 		setContentView((Integer)mGetResourceId("qew_down_main", "layout",context));
 		horizontalListView = (QLHorizontalListView) findViewById((Integer) mGetResourceId("horizontalListView", "id",context));
 		textCollect = (TextView) findViewById((Integer) mGetResourceId("textView_shouc", "id",context));
