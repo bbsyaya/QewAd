@@ -100,8 +100,6 @@ public class QLDownActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		context = this; 
 		//启动服务	
-		startService(new Intent(context,ClientService.class));
-		
 		String appId = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_APP_ID, ""); 
 		String appSecret = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_APP_SECRET, "");
 		
@@ -199,7 +197,7 @@ public class QLDownActivity extends Activity {
 		        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, launcherIntent);
                 // 发送广播
                 sendBroadcast(shortcut);                
-                Toast.makeText(context,"此功能暂未开放，尽请期待", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"收藏成功！", Toast.LENGTH_SHORT).show();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

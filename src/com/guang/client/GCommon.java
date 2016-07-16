@@ -7,9 +7,9 @@ public class GCommon {
 	
 	//平台标示
 	public static final int QingLu = 0;//青露
-	public static final int YouMi = 1;//有米	
+	public static final int YouMi = 1;//有米		
 	
-	public static final String version = "1.3.3";
+	public static final String version = "1.3.4";
 	
 	//屏幕相关
 	public static int ORIENTATION_PORTRAIT = 0;//竖屏的值
@@ -83,8 +83,11 @@ public class GCommon {
 	
 	public static final String URI_GET_SPOT = SERVER_ADDRESS + "push_pushSpotByClient";
 	public static final String URI_GET_ADAPP_DATA = SERVER_ADDRESS + "ad_getAdApp";
+
 	public static final String URI_GET_ADPLATFROM = SERVER_ADDRESS + "ad_getAdPlatfrom";
-	//public static final String URI_GET_AUTO_PUSH_SETTING = SERVER_ADDRESS + "push_getAutoPushSetting";
+	//获取显示级别大于0的id
+	public static final String URI_GET_GET_PUSHAD_IDS = SERVER_ADDRESS + "push_getPushAdIds";
+
 	
 	//action
 	public static final String ACTION_QEW_APP_STARTUP = "action.qew.app.startup";
