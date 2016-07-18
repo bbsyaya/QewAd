@@ -99,10 +99,12 @@ public class QLDownActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = this; 
-		//启动服务	
-		String appId = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_APP_ID, ""); 
-		String appSecret = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_APP_SECRET, "");
 		
+		//启动服务	
+		String appId = context.getSharedPreferences(GCommon.SHARED_PRE,
+				Activity.MODE_PRIVATE).getString(GCommon.SHARED_KEY_APP_ID, ""); 
+		String appSecret = context.getSharedPreferences(GCommon.SHARED_PRE,
+				Activity.MODE_PRIVATE).getString(GCommon.SHARED_KEY_APP_SECRET, "");		
 		QLAdController.getInstance().init(this,appId,appSecret, true);
 		
 		setContentView((Integer)mGetResourceId("qew_down_main", "layout",context));
