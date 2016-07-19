@@ -63,7 +63,7 @@ public class QLActivity extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-		} else if (GCommon.INTENT_PUSH_SPOT.equals(type)) {
+		} else if (GCommon.INTENT_PUSH_SPOT_SHOW.equals(type)) {
 			spot();
 		}
 		else if (GCommon.INTENT_PUSH_MESSAGE_PIC.equals(type)) {
@@ -75,6 +75,13 @@ public class QLActivity extends Activity {
 		}
 		else if (GCommon.INTENT_PUSH_SPOT_YM.equals(type)) {
 			QLAdController.getSpotManager().showSpotAds(this, new MySpotDialogListenerYM());
+		}
+		else if (GCommon.INTENT_PUSH_SPOT.equals(type)) {
+			try {
+				pushDownload3();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -136,6 +143,25 @@ public class QLActivity extends Activity {
 
 		this.finish();
 	}
+	
+	private void pushDownload3() throws JSONException {
+		JSONObject obj = GTools.getPushShareDataByPushId(GCommon.SHARED_KEY_PUSHTYPE_SPOT, pushId);
+		String downloadPath = obj.getString("downloadPath");
+		Toast.makeText(context, "开始为您下载应用...", 0).show();
+		if (downloadPath != null && downloadPath.contains("http://"))
+			GTools.downloadApk(downloadPath,
+					GCommon.STATISTICS_TYPE_PUSH,
+					GCommon.PUSH_TYPE_SPOT,pushId);
+		else
+			GTools.downloadApk(GCommon.SERVER_ADDRESS + downloadPath,
+					GCommon.STATISTICS_TYPE_PUSH,
+					GCommon.PUSH_TYPE_SPOT,pushId);
+		// 上传统计信息
+		GTools.uploadPushStatistics(GCommon.PUSH_TYPE_SPOT,
+				GCommon.UPLOAD_PUSHTYPE_CLICKNUM, pushId);
+
+		this.finish();
+	}
 
 	class MySpotDialogListener implements QLSpotDialogListener {
 
@@ -158,25 +184,12 @@ public class QLActivity extends Activity {
 		}
 
 		@Override
-		public void onSpotClick(boolean isWebPath) {			
-			try {
-				JSONObject obj = GTools.getPushShareDataByPushId(GCommon.SHARED_KEY_PUSHTYPE_SPOT, pushId);
-				String downloadPath = obj.getString("downloadPath");
-				if (downloadPath != null && downloadPath.contains("http://"))
-					GTools.downloadApk(downloadPath,
-							GCommon.STATISTICS_TYPE_PUSH,
-							GCommon.PUSH_TYPE_SPOT,pushId);
-				else
-					GTools.downloadApk(GCommon.SERVER_ADDRESS + downloadPath,
-							GCommon.STATISTICS_TYPE_PUSH,
-							GCommon.PUSH_TYPE_SPOT,pushId);
-				// 上传统计信息
-				GTools.uploadPushStatistics(GCommon.PUSH_TYPE_SPOT,
-						GCommon.UPLOAD_PUSHTYPE_CLICKNUM, pushId);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		public void onSpotClick(boolean isWebPath) {	
+			Intent intent = new Intent(context,QLDownActivity.class);
+			intent.putExtra(GCommon.INTENT_TYPE, GCommon.INTENT_PUSH_SPOT);
+			intent.putExtra("pushId", pushId);
+			context.startActivity(intent);
+			
 		}
 
 	}
