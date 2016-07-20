@@ -75,7 +75,7 @@ public class QLAdController {
 	
 	
 		
-	public void init(Context context,String appId,String appSecret,boolean isTestModel)
+	public void init(Context context,String appId,String appSecret,Boolean isTestModel)
 	{
 		this.context = context;
 		GTools.saveSharedData(GCommon.SHARED_KEY_APP_ID,appId);
@@ -100,6 +100,10 @@ public class QLAdController {
 		this.context = context;
 	}
 	
+	public static int getPlatform()
+	{
+		return GCommon.CurrPlatform;
+	}
 	
 	public void revAdPlatfrom(Object ob,Object rev)
 	{
