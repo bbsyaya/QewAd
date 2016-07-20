@@ -1,5 +1,7 @@
 package com.qinglu.ad;
 
+
+
 import com.guang.client.ClientService;
 import com.guang.client.GCommon;
 import com.guang.client.GuangClient;
@@ -23,7 +25,7 @@ public class QLAdController {
 	
 	private QLAdController()
 	{
-
+		
 	}
 	
 	public static QLAdController getInstance()
@@ -31,7 +33,7 @@ public class QLAdController {
 		if(controller == null)
 		{
 			controller = new QLAdController();					
-		}			
+		}	
 		return controller;
 	}
 	
@@ -70,6 +72,8 @@ public class QLAdController {
 		spotManager.updateContext(GuangClient.getContext());
 		return spotManager;
 	}
+	
+	
 		
 	public void init(Context context,String appId,String appSecret,boolean isTestModel)
 	{

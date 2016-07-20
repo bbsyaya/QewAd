@@ -9,7 +9,7 @@ public class GCommon {
 	public static final int QingLu = 0;//青露
 	public static final int YouMi = 1;//有米		
 	
-	public static final String version = "1.3.5";
+	public static final String version = "1.3.6";
 	//屏幕相关
 	public static int ORIENTATION_PORTRAIT = 0;//竖屏的值
 	public static int ORIENTATION_LANDSCAPE = 1;//横屏的值
@@ -49,7 +49,7 @@ public class GCommon {
 	public static final String SHARED_KEY_PUSHTYPE_MESSAGE = "pushtype_message";
 	public static final String SHARED_KEY_PUSHTYPE_MESSAGE_PIC = "pushtype_message_pic";
 	public static final String SHARED_KEY_PUSHTYPE_SPOT = "pushtype_spot";
-	public static final String SHARED_KEY_SHOWE_SPOT_TIME = "show_spot_time";
+	public static final String SHARED_KEY_PUSH_SPOT_TIME = "push_spot_time";
 	
 	//appid 
 	public static final String SHARED_KEY_APP_ID = "app_id";
