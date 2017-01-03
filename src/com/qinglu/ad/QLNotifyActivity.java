@@ -71,7 +71,7 @@ public class QLNotifyActivity extends Activity{
 		
 		final int l_height = GTools.dip2px(50);
 		
-		final LayoutParams p = getWindow().getAttributes();  //»ñÈ¡¶Ô»°¿òµ±Ç°µÄ²ÎÊıÖµ    
+		final LayoutParams p = getWindow().getAttributes();  //è·å–å¯¹è¯æ¡†å½“å‰çš„å‚æ•°å€¼    
 		//p.width = width-50;  
 		p.height = l_height;    
         p.x = 0;
@@ -129,7 +129,7 @@ public class QLNotifyActivity extends Activity{
 			});
          view.startAnimation(animationSet);
 
-		 //ÉÏ´«Í³¼ÆĞÅÏ¢
+		 //ä¸Šä¼ ç»Ÿè®¡ä¿¡æ¯
 		//GTools.uploadPushStatistics(GCommon.PUSH_TYPE_MESSAGE_PIC,GCommon.UPLOAD_PUSHTYPE_SHOWNUM,pushId);
 		
 		view.setOnClickListener(new OnClickListener() {			

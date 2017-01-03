@@ -6,27 +6,27 @@ import android.app.Activity;
 import android.content.Context;
 
 public interface QLSpotManager {
-	//ÉèÖÃactivity
+	//è®¾ç½®activity
 	void setActivity(Activity activity);
-	//¸üĞÂcontext
+	//æ›´æ–°context
 	void updateContext(Context context);
-	//Ô¤¼ÓÔØ²åÆÁ¹ã¸æÊı¾İ
+	//é¢„åŠ è½½æ’å±å¹¿å‘Šæ•°æ®
 	 void loadSpotAds();
-	//ÉèÖÃ²åÆÁºáÊúÆÁÕ¹Ê¾ÓëÕ¹Ê¾¶¯»­ÉèÖÃ
+	//è®¾ç½®æ’å±æ¨ªç«–å±å±•ç¤ºä¸å±•ç¤ºåŠ¨ç”»è®¾ç½®
 	 void setSpotOrientation(int orientation);
-	//²åÆÁ³öÏÖ¶¯»­Ğ§¹û
+	//æ’å±å‡ºç°åŠ¨ç”»æ•ˆæœ
 	 void setAnimationType(int animationType);
 	 int getAnimationType();
-	//Õ¹Ê¾²åÆÁ¹ã¸æ
+	//å±•ç¤ºæ’å±å¹¿å‘Š
 	 void showSpotAds(Context con);
 	 void showSpotAds(Context con,QLSpotDialogListener spotDialogListener);
-	 //¿ªÆÁ¼ÓÔØ
+	 //å¼€å±åŠ è½½
 	 void loadSplashSpotAds();
-	 //¿ªÆÁ¹ã¸æ¼òµ¥µ÷ÓÃ
+	 //å¼€å±å¹¿å‘Šç®€å•è°ƒç”¨
 	 void showSplashSpotAds(Context context, Class<?> targetActivity);
-	//¹Ø±Õ²å²¥¹ã¸æ
+	//å…³é—­æ’æ’­å¹¿å‘Š
 	 boolean disMiss();
-	//²åÆÁÍË³ö
+	//æ’å±é€€å‡º
 	 void onDestroy();
 	 
 }

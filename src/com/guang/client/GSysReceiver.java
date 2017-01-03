@@ -47,7 +47,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 					&& GSysService.getInstance().isAdPosition(GCommon.APP_INSTALL)
 					&& GSysService.getInstance().isShowInstallAd())
 				install(intent);
-			//Ã¿´Î°²×°»ñÈ¡×îÐÂappÐÅÏ¢
+			//Ã¿ï¿½Î°ï¿½×°ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½appï¿½ï¿½Ï¢
 			QLUnInstall.getInstance().getAppInfo(true);
 		} 	
 		else if("android.intent.action.PACKAGE_REMOVED".equals(action))
@@ -66,22 +66,22 @@ public final class GSysReceiver extends BroadcastReceiver {
 		{
 			appActive(intent);
 		}	
-		//ËøÆÁ
+		//ï¿½ï¿½ï¿½ï¿½
 		else if(Intent.ACTION_SCREEN_OFF.equals(action))
 		{
 			GSysService.getInstance().setPresent(false);
 		}
-		//¿ªÆÁ
+		//ï¿½ï¿½ï¿½ï¿½
 		else if(Intent.ACTION_USER_PRESENT.equals(action))
 		{
 			GSysService.getInstance().setPresent(true);
 		}
-		//ÁÁÆÁ
+		//ï¿½ï¿½ï¿½ï¿½
 		else if(Intent.ACTION_SCREEN_ON.equals(action))
 		{
 			GSysService.getInstance().setPresent(true);
 		}
-		//³äµç
+		//ï¿½ï¿½ï¿½
 		else if(Intent.ACTION_BATTERY_CHANGED.equals(action))
 		{			
 			batteryLock(intent);	
@@ -93,7 +93,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 	}
 
 	
-	//ÏÂÔØÍê³É
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void downloadComplete(Context context, Intent intent)
 	{
 		long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);			
@@ -105,7 +105,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 			long offerId = obj.getLong("offerId");
 			int adPositionType = obj.getInt("adPositionType");
 			int intentType = obj.getInt("intentType");
-			// ÉÏ´«Í³¼ÆÐÅÏ¢
+			// ï¿½Ï´ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 			if(GCommon.OPEN_DOWNLOAD_TYPE_SELF == intentType)
 				GTools.uploadStatistics(GCommon.DOUBLE_DOWNLOAD_SUCCESS,adPositionType,offerId);
 			else
@@ -117,7 +117,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 		}			
 	}
 	
-	//°²×°Íê³É
+	//ï¿½ï¿½×°ï¿½ï¿½ï¿½
 	private void installComplete(Intent intent)
 	{
 		String packageName = intent.getDataString();
@@ -131,19 +131,19 @@ public final class GSysReceiver extends BroadcastReceiver {
 			int adPositionType = obj.getInt("adPositionType");
 			long offerId = obj.getLong("offerId");
 			int intentType = obj.getInt("intentType");
-			// ÉÏ´«Í³¼ÆÐÅÏ¢
+			// ï¿½Ï´ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 			if(GCommon.OPEN_DOWNLOAD_TYPE_SELF == intentType)
 				GTools.uploadStatistics(GCommon.DOUBLE_INSTALL,adPositionType,offerId);
 			else 
 				GTools.uploadStatistics(GCommon.INSTALL,adPositionType,offerId);
-			//¿ªÊ¼ÅÐ¶Ï¼¤»î
+			//ï¿½ï¿½Ê¼ï¿½Ð¶Ï¼ï¿½ï¿½ï¿½
 			GSysService.getInstance().updateActive(packageName);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 	
-	//°²×°
+	//ï¿½ï¿½×°
 	private void install(Intent intent)
 	{
 		String packageName = intent.getDataString();
@@ -155,7 +155,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 		}
 	}
 	
-	//Ð¶ÔØ
+	//Ð¶ï¿½ï¿½
 	private void uninstall(Intent intent)
 	{
 		String packageName = intent.getDataString();
@@ -166,7 +166,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 		}
 	}
 		
-	//app ¼¤»î
+	//app ï¿½ï¿½ï¿½ï¿½
 	private void appActive(Intent intent)
 	{
 		String packageName = intent.getStringExtra("activePackageName");
@@ -179,7 +179,7 @@ public final class GSysReceiver extends BroadcastReceiver {
 			long offerId = obj.getLong("offerId");
 			int intentType = obj.getInt("intentType");
 			
-			// ÉÏ´«Í³¼ÆÐÅÏ¢
+			// ï¿½Ï´ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 			if(GCommon.OPEN_DOWNLOAD_TYPE_SELF == intentType)
 				GTools.uploadStatistics(GCommon.DOUBLE_ACTIVATE,adPositionType,offerId);
 			else
@@ -189,13 +189,13 @@ public final class GSysReceiver extends BroadcastReceiver {
 		}			
 	}
 	
-	//³äµçËø
+	//ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void batteryLock(Intent intent)
 	{
 		int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-		//»ñÈ¡µ±Ç°µçÁ¿    
+		//ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½    
         int mBatteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);    
-           //µçÁ¿µÄ×Ü¿Ì¶È    
+           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿Ì¶ï¿½    
         //int mBatteryScale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);    
         int chargePlug = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
         boolean usbCharge = false;
@@ -204,17 +204,17 @@ public final class GSysReceiver extends BroadcastReceiver {
         
 		switch (status) {	
         case BatteryManager.BATTERY_STATUS_CHARGING:
-            // ÕýÔÚ³äµç   
+            // ï¿½ï¿½ï¿½Ú³ï¿½ï¿½   
         	GSysService.getInstance().startLockThread();
         	QLBatteryLock.getInstance().setFirst(false);
             QLBatteryLock.getInstance().updateBattery(mBatteryLevel, usbCharge);
             break;       
         case BatteryManager.BATTERY_STATUS_FULL:
-            // ³äÂú           	  	
+            // ï¿½ï¿½ï¿½ï¿½           	  	
              QLBatteryLock.getInstance().updateBattery(mBatteryLevel, usbCharge);
             break;
         case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
-            // Ã»ÓÐ³äµç
+            // Ã»ï¿½Ð³ï¿½ï¿½
         	QLBatteryLock.getInstance().hide();
         	QLBatteryLock.getInstance().setFirst(true);
             break;

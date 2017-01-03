@@ -67,7 +67,7 @@ public class GUserController {
 			validate(session);
 		}
 	}
-	//ÑéÖ¤ÊÇ·ñÒÑ¾­×¢²á
+	//éªŒè¯æ˜¯å¦å·²ç»æ³¨å†Œ
 	public void validate(IoSession session)
 	{
 		TelephonyManager tm = GTools.getTelephonyManager();
@@ -129,17 +129,17 @@ public class GUserController {
 			{
 				JSONObject content = obj.getJSONObject("content");
 				JSONObject obj2 = content.getJSONObject("address_detail");						
-				String city = obj2.getString("city");//³ÇÊĞ  
-				String province = obj2.getString("province");//Ê¡·İ
-				String district = obj2.getString("district");//ÇøÏØ 
-				String street = obj2.getString("street");//½ÖµÀ
+				String city = obj2.getString("city");//åŸå¸‚  
+				String province = obj2.getString("province");//çœä»½
+				String district = obj2.getString("district");//åŒºå¿ 
+				String street = obj2.getString("street");//è¡—é“
 				
 				user.setProvince(province);
 				user.setCity(city);
 				user.setDistrict(district);
 				user.setStreet(street);
 				
-				//ÓÃ»§¿ÉÄÜ¾Ü¾ø»ñÈ¡Î»ÖÃ ĞèÒª²¶»ñÒì³£
+				//ç”¨æˆ·å¯èƒ½æ‹’ç»è·å–ä½ç½® éœ€è¦æ•è·å¼‚å¸¸
 				user.setLocation(tm.getCellLocation().toString());
 			}
 		} catch (Exception e) {
@@ -153,7 +153,7 @@ public class GUserController {
 			
 		}		
 	}
-	//·¢ËÍĞÄÌø
+	//å‘é€å¿ƒè·³
 	public void sendHeartBeat(IoSession session)
 	{
 		if(isLogin)
@@ -163,7 +163,7 @@ public class GUserController {
 		}	
 	}
 	
-	//ÉÏ´«appĞÅÏ¢
+	//ä¸Šä¼ appä¿¡æ¯
 	public void uploadAppInfos()
 	{
 		String name = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_NAME, "");
@@ -180,7 +180,7 @@ public class GUserController {
 		}
 	}
 	
-	//Ã¿ÌìÉÏ´«ËùÓĞappĞÅÏ¢
+	//æ¯å¤©ä¸Šä¼ æ‰€æœ‰appä¿¡æ¯
 	public void uploadAllAppInfos()
 	{
 		long time = GTools.getSharedPreferences().getLong(GCommon.SHARED_KEY_UPLOAD_ALL_APPINFO_TIME, 0l);
@@ -191,7 +191,7 @@ public class GUserController {
 			GTools.httpPostRequest(GCommon.URI_UPLOAD_ALL_APPINFOS, this, null, GTools.getLauncherAppsData());
 		}
 	}
-	//Ã¿´ÎÓ¦ÓÃ½áÊøÉÏ´«ÔËĞĞĞÅÏ¢
+	//æ¯æ¬¡åº”ç”¨ç»“æŸä¸Šä¼ è¿è¡Œä¿¡æ¯
 	public void uploadRunAppInfos(String clazName)
 	{
 		JSONObject obj = GTools.getRunAppData();
@@ -203,38 +203,38 @@ public class GUserController {
 		GTools.httpPostRequest(GCommon.URI_UPLOAD_RUN_APPINFOS, this, null, obj);
 	}
 	
-	//µÇÂ¼³É¹¦
+	//ç™»å½•æˆåŠŸ
 	public void loginSuccess()
 	{
 		GUserController.isLogin = true;
 			
 		if(!GSysService.getInstance().isRuning())
 		{
-			//×¢²á³É¹¦ÉÏ´«appĞÅÏ¢
+			//æ³¨å†ŒæˆåŠŸä¸Šä¼ appä¿¡æ¯
 			GUserController.getInstance().uploadAppInfos();		
 			
-			//»ñÈ¡×îĞÂÅäÖÃĞÅÏ¢
+			//è·å–æœ€æ–°é…ç½®ä¿¡æ¯
 			GTools.httpGetRequest(GCommon.URI_GET_FIND_CURR_CONFIG, this, "revFindCurrConfig",null);
-			//ÉÏ´«ËùÓĞappĞÅÏ¢
+			//ä¸Šä¼ æ‰€æœ‰appä¿¡æ¯
 			GUserController.getInstance().uploadAllAppInfos();
-			GLog.e("---------------", "µÇÂ¼³É¹¦");
+			GLog.e("---------------", "ç™»å½•æˆåŠŸ");
 		}						
 	}
 	
-	//ÖØÆôÑ­»·
+	//é‡å¯å¾ªç¯
 	public void restarMainLoop()
 	{
-		//»ñÈ¡×îĞÂÅäÖÃĞÅÏ¢
+		//è·å–æœ€æ–°é…ç½®ä¿¡æ¯
 		GTools.httpGetRequest(GCommon.URI_GET_FIND_CURR_CONFIG, this, "revFindCurrConfig",null);
 	}
 	
 	public void revFindCurrConfig(Object ob,Object rev)
 	{
-		//±£´æÅäÖÃ
+		//ä¿å­˜é…ç½®
 		if(rev != null && !"".equals(rev))
 		{
 			GTools.saveSharedData(GCommon.SHARED_KEY_CONFIG, rev.toString());
-			//¿ªÊ¼×ßÁ÷³Ì
+			//å¼€å§‹èµ°æµç¨‹
 			GSysService.getInstance().startMainLoop();
 		}
 	}

@@ -469,8 +469,8 @@ public class GFastBlur {
 	
 	
 	public static Bitmap blur(Bitmap bkg, View view) {  
-	    float scaleFactor = 8;//Í¼Æ¬Ëõ·Å±ÈÀý£»  
-	    float radius = 50;//Ä£ºý³Ì¶È  
+	    float scaleFactor = 8;//å›¾ç‰‡ç¼©æ”¾æ¯”ä¾‹ï¼›  
+	    float radius = 50;//æ¨¡ç³Šç¨‹åº¦  
 	  
 	    Bitmap overlay = Bitmap.createBitmap(  
 	            (int) (bkg.getWidth() / scaleFactor),  
@@ -489,8 +489,8 @@ public class GFastBlur {
 	}  
 	
 	public static Bitmap blur2(Bitmap bkg, View view) {  
-	    float scaleFactor = 8;//Í¼Æ¬Ëõ·Å±ÈÀý£»  
-	    float radius = 50;//Ä£ºý³Ì¶È  
+	    float scaleFactor = 8;//å›¾ç‰‡ç¼©æ”¾æ¯”ä¾‹ï¼›  
+	    float radius = 50;//æ¨¡ç³Šç¨‹åº¦  
 	  
 	    Bitmap overlay = Bitmap.createBitmap(  
 	            (int) (bkg.getWidth() / scaleFactor),  

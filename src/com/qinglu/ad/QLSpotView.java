@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class QLSpotView extends RelativeLayout{
-	private  int s = 3;//¹Ø±ÕÊ±¼ä
+	private  int s = 3;//å…³é—­æ—¶é—´
 	private Bitmap viewBm;
 	private QLSpotDialogListener dialogListener;
 	private QLSize size;
@@ -63,7 +63,7 @@ public class QLSpotView extends RelativeLayout{
 		try {			
 			viewBm = BitmapFactory.decodeFile(context.getFilesDir().getPath()+"/"+ obj.getString("openSpotPicPath")) ;
 			view.setImageBitmap(viewBm);
-			//µ×²ãÈÝÆ÷			
+			//åº•å±‚å®¹å™¨			
 			final QLSpotView layout = this;
 
 			RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);		
@@ -84,7 +84,7 @@ public class QLSpotView extends RelativeLayout{
 			paramsCloseText.addRule(RelativeLayout.ALIGN_PARENT_TOP);
 			
 			final TextView closeText = new TextView(context);
-			closeText.setText(s+" Ìø¹ý");
+			closeText.setText(s+" è·³è¿‡");
 			//closeText.setTextColor(Color.WHITE);
 			closeText.setTextSize(16);
 			closeText.setLayoutParams(paramsCloseText);
@@ -119,7 +119,7 @@ public class QLSpotView extends RelativeLayout{
 						}
 						else
 						{
-							closeText.setText(s+" Ìø¹ý");
+							closeText.setText(s+" è·³è¿‡");
 						}				
 					}
 					super.handleMessage(msg);

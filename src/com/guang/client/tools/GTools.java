@@ -63,7 +63,7 @@ public class GTools {
 
 	private static final String TAG = "GTools";
 
-	// µÃµ½µ±Ç°SharedPreferences
+	// å¾—åˆ°å½“å‰SharedPreferences
 	public static SharedPreferences getSharedPreferences() {
 		Context context = GuangClient.getContext();
 		if(context == null)
@@ -72,7 +72,7 @@ public class GTools {
 				Activity.MODE_PRIVATE);
 	}
 
-	// ±£´æÒ»¸öshareÊı¾İ
+	// ä¿å­˜ä¸€ä¸ªshareæ•°æ®
 	public static <T> void saveSharedData(String key, T value) {
 		SharedPreferences mySharedPreferences = getSharedPreferences();
 		Editor editor = mySharedPreferences.edit();
@@ -87,17 +87,17 @@ public class GTools {
 		} else if (value instanceof Boolean) {
 			editor.putBoolean(key, (Boolean) value);
 		}
-		// Ìá½»µ±Ç°Êı¾İ
+		// æäº¤å½“å‰æ•°æ®
 		editor.commit();
 	}
 
-	// µÃµ½TelephonyManager
+	// å¾—åˆ°TelephonyManager
 	public static TelephonyManager getTelephonyManager() {
 		Context context = GuangClient.getContext();
 		return (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 	}
 
-	// »ñÈ¡µ±Ç°ÍøÂçÀàĞÍ
+	// è·å–å½“å‰ç½‘ç»œç±»å‹
 	public static String getNetworkType() {
 		Context context = GuangClient.getContext();
 		ConnectivityManager connectMgr = (ConnectivityManager) context
@@ -126,13 +126,13 @@ public class GTools {
 		return networkType;
 	}
 
-	// »ñÈ¡±¾»úipµØÖ·
+	// è·å–æœ¬æœºipåœ°å€
 	public static String getLocalHost() {
 		Context context = GuangClient.getContext();
-		// »ñÈ¡wifi·şÎñ
+		// è·å–wifiæœåŠ¡
 		WifiManager wifiManager = (WifiManager) context
 				.getSystemService(Context.WIFI_SERVICE);
-		// ÅĞ¶ÏwifiÊÇ·ñ¿ªÆô
+		// åˆ¤æ–­wifiæ˜¯å¦å¼€å¯
 		if (!wifiManager.isWifiEnabled()) {
 			wifiManager.setWifiEnabled(true);
 		}
@@ -148,7 +148,7 @@ public class GTools {
 				+ "." + (i >> 24 & 0xFF);
 	}
 	
-	//µÃµ½Ó¦ÓÃÃû
+	//å¾—åˆ°åº”ç”¨å
 	public static String getApplicationName()
 	{
 		Context context = GuangClient.getContext();
@@ -166,7 +166,7 @@ public class GTools {
 				.getApplicationLabel(applicationInfo);
 		return applicationName;
 	}
-	//µÃµ½°æ±¾Ãû
+	//å¾—åˆ°ç‰ˆæœ¬å
 	public static String getAppVersionName() {  
 		Context context = GuangClient.getContext();
 	    String versionName = "";  
@@ -183,14 +183,14 @@ public class GTools {
 	    return versionName;  
 	}  
 	
-	//µÃµ½°üÃû
+	//å¾—åˆ°åŒ…å
 	public static String getPackageName()
 	{
 		Context context = GuangClient.getContext();
 		return context.getPackageName();
 	}	
 	
-	// »ñÈ¡ÆÁÄ»¿í¸ß
+	// è·å–å±å¹•å®½é«˜
 	@SuppressWarnings("deprecation")
 	public static QLSize getScreenSize(Context context) {
 		WindowManager wm = (WindowManager) context
@@ -202,14 +202,14 @@ public class GTools {
 		return new QLSize(width, height);
 	}
 	
-	//µÃµ½µ±Ç°Ê±¼ä
+	//å¾—åˆ°å½“å‰æ—¶é—´
 	public static long getCurrTime()
 	{
 		return System.currentTimeMillis();
 	}
 
-	// ½âÎö²¢Ö´ĞĞÒ»¸öcallback 
-	//target Ä¿±ê  function ·½·¨Ãû  data ´«ÈëÊı¾İ  cdata ´«ÈëÊı¾İ2
+	// è§£æå¹¶æ‰§è¡Œä¸€ä¸ªcallback 
+	//target ç›®æ ‡  function æ–¹æ³•å  data ä¼ å…¥æ•°æ®  cdata ä¼ å…¥æ•°æ®2
 	public static void parseFunction(Object target, String function,
 			Object data, Object cdata) {
 		try {
@@ -223,17 +223,17 @@ public class GTools {
 			Method m = c.getMethod(function, args);
 			m.invoke(target, data, cdata);
 		} catch (Exception e) {
-			GLog.e(TAG, "parseFunction ½âÎöÊ§°Ü£¡ " + function + " "+e.getLocalizedMessage());
+			GLog.e(TAG, "parseFunction è§£æå¤±è´¥ï¼ " + function + " "+e.getLocalizedMessage());
 		}
 	}
 
-	// ·¢ËÍÒ»¸öhttp getÇëÇó dataUrl °üº¬Êı¾İµÄÇëÇóÂ·¾¶
-	//target Ä¿±ê  callback ·½·¨Ãû  data ´«ÈëÊı¾İ 
+	// å‘é€ä¸€ä¸ªhttp getè¯·æ±‚ dataUrl åŒ…å«æ•°æ®çš„è¯·æ±‚è·¯å¾„
+	//target ç›®æ ‡  callback æ–¹æ³•å  data ä¼ å…¥æ•°æ® 
 	public static void httpGetRequest(final String dataUrl,
 			final Object target, final String callback, final Object data) {
 		new Thread() {
 			public void run() {
-				// µÚÒ»²½£º´´½¨HttpClient¶ÔÏó
+				// ç¬¬ä¸€æ­¥ï¼šåˆ›å»ºHttpClientå¯¹è±¡
 				HttpClient httpCient = new DefaultHttpClient();
 				HttpGet httpGet = new HttpGet(dataUrl);
 				HttpResponse httpResponse;
@@ -242,12 +242,12 @@ public class GTools {
 					httpResponse = httpCient.execute(httpGet);
 					if (httpResponse.getStatusLine().getStatusCode() == 200) {
 						HttpEntity entity = httpResponse.getEntity();
-						response = EntityUtils.toString(entity, "utf-8");// ½«entityµ±ÖĞµÄÊı¾İ×ª»»Îª×Ö·û´®					
+						response = EntityUtils.toString(entity, "utf-8");// å°†entityå½“ä¸­çš„æ•°æ®è½¬æ¢ä¸ºå­—ç¬¦ä¸²					
 					} else {
-						GLog.e(TAG, "httpGetRequest ÇëÇóÊ§°Ü£¡");
+						GLog.e(TAG, "httpGetRequest è¯·æ±‚å¤±è´¥ï¼");
 					}
 				} catch (Exception e) {
-					GLog.e(TAG, "httpGetRequest ÇëÇóÊ§°Ü£¡");
+					GLog.e(TAG, "httpGetRequest è¯·æ±‚å¤±è´¥ï¼");
 				} finally {
 					parseFunction(target, callback, data, response);
 				}
@@ -255,7 +255,7 @@ public class GTools {
 		}.start();
 	}
 	
-	// ·¢ËÍÒ»¸öhttp postÇëÇó url ÇëÇóÂ·¾¶
+	// å‘é€ä¸€ä¸ªhttp postè¯·æ±‚ url è¯·æ±‚è·¯å¾„
 	public static void httpPostRequest(final String url,
 			final Object target, final String callback, final Object data)
 	{
@@ -266,7 +266,7 @@ public class GTools {
 					List<NameValuePair> pairList = new ArrayList<NameValuePair>();
 					if(data == null)
 					{
-						GLog.e(TAG, "post ÇëÇóÊı¾İÎª¿Õ");
+						GLog.e(TAG, "post è¯·æ±‚æ•°æ®ä¸ºç©º");
 					}	
 					else
 					{
@@ -276,27 +276,27 @@ public class GTools {
 					
 					HttpEntity requestHttpEntity = new UrlEncodedFormEntity(
 							pairList, "UTF-8");
-					// URLÊ¹ÓÃ»ù±¾URL¼´¿É£¬ÆäÖĞ²»ĞèÒª¼Ó²ÎÊı
+					// URLä½¿ç”¨åŸºæœ¬URLå³å¯ï¼Œå…¶ä¸­ä¸éœ€è¦åŠ å‚æ•°
 					HttpPost httpPost = new HttpPost(url);
-					// ½«ÇëÇóÌåÄÚÈİ¼ÓÈëÇëÇóÖĞ
+					// å°†è¯·æ±‚ä½“å†…å®¹åŠ å…¥è¯·æ±‚ä¸­
 					httpPost.setEntity(requestHttpEntity);
-					// ĞèÒª¿Í»§¶Ë¶ÔÏóÀ´·¢ËÍÇëÇó
+					// éœ€è¦å®¢æˆ·ç«¯å¯¹è±¡æ¥å‘é€è¯·æ±‚
 					HttpClient httpClient = new DefaultHttpClient();
 					httpClient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, 20000); 
 					httpClient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, 60000);
-					// ·¢ËÍÇëÇó
+					// å‘é€è¯·æ±‚
 					HttpResponse response = httpClient.execute(httpPost);
-					// ÏÔÊ¾ÏìÓ¦
+					// æ˜¾ç¤ºå“åº”
 					if (response.getStatusLine().getStatusCode() == 200) {
 						HttpEntity entity = response.getEntity();
 						responseStr = EntityUtils.toString(entity,
-								"utf-8");// ½«entityµ±ÖĞµÄÊı¾İ×ª»»Îª×Ö·û´®
-						GLog.i(TAG, "===postÇëÇó³É¹¦===");						
+								"utf-8");// å°†entityå½“ä¸­çš„æ•°æ®è½¬æ¢ä¸ºå­—ç¬¦ä¸²
+						GLog.i(TAG, "===postè¯·æ±‚æˆåŠŸ===");						
 					} else {
-						GLog.e(TAG, "===postÇëÇóÊ§°Ü===");
+						GLog.e(TAG, "===postè¯·æ±‚å¤±è´¥===");
 					}
 				} catch (Exception e) {
-					GLog.e(TAG, "===postÇëÇóÒì³£===");
+					GLog.e(TAG, "===postè¯·æ±‚å¼‚å¸¸===");
 					e.printStackTrace();
 				}
 				finally {
@@ -306,7 +306,7 @@ public class GTools {
 		}.start();
 	}
 	
-	// ÏÂÔØ×ÊÔ´ url ÇëÇóÂ·¾¶
+	// ä¸‹è½½èµ„æº url è¯·æ±‚è·¯å¾„
 	public static void downloadRes(final String url,
 			final Object target, final String callback, final Object data,final boolean isDelete)
 	{
@@ -323,7 +323,7 @@ public class GTools {
 				String responseStr = "0";
 				try {
 				GLog.e("===============", "==="+pic);
-				// ÅĞ¶ÏÍ¼Æ¬ÊÇ·ñ´æÔÚ
+				// åˆ¤æ–­å›¾ç‰‡æ˜¯å¦å­˜åœ¨
 				String picRelPath = context.getFilesDir().getPath() + "/" + pic;
 				File file = new File(picRelPath);
 				if (file.exists()) {
@@ -332,7 +332,7 @@ public class GTools {
 					else
 						return;
 				}
-				// Èç¹û²»´æÔÚÅĞ¶ÏÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ£¬²»´æÔÚÔò´´½¨
+				// å¦‚æœä¸å­˜åœ¨åˆ¤æ–­æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™åˆ›å»º
 				File destDir = new File(context.getFilesDir().getPath() + "/"
 						+ pic.substring(0, pic.lastIndexOf("/")));
 				if (!destDir.exists()) {
@@ -340,7 +340,7 @@ public class GTools {
 				}
 				String address = url + pic;
 				
-					// ÇëÇó·şÎñÆ÷¹ã¸æÍ¼Æ¬
+					// è¯·æ±‚æœåŠ¡å™¨å¹¿å‘Šå›¾ç‰‡
 					URLConnection openConnection = new URL(address)
 							.openConnection();
 					openConnection.setConnectTimeout(20*1000);
@@ -348,7 +348,7 @@ public class GTools {
 					InputStream is = openConnection.getInputStream();
 					byte[] buff = new byte[1024];
 					int len;
-					// È»ºóÊÇ´´½¨ÎÄ¼ş¼Ğ
+					// ç„¶åæ˜¯åˆ›å»ºæ–‡ä»¶å¤¹
 					FileOutputStream fos = new FileOutputStream(file);
 					if (null != is) {
 						while ((len = is.read(buff)) != -1) {
@@ -359,7 +359,7 @@ public class GTools {
 					is.close();
 					responseStr = "1";
 				} catch (Exception e) {
-					GLog.e(TAG, "===postÇëÇó×ÊÔ´Òì³£==="+e.getLocalizedMessage());
+					GLog.e(TAG, "===postè¯·æ±‚èµ„æºå¼‚å¸¸==="+e.getLocalizedMessage());
 					e.printStackTrace();
 				}
 				finally {
@@ -369,12 +369,12 @@ public class GTools {
 		}).start();
 	}
 	
-	//Éú³ÉÒ»¸öÎ¨Ò»Ãû×Ö
+	//ç”Ÿæˆä¸€ä¸ªå”¯ä¸€åå­—
 	 public static String getRandomUUID() {
 	        String uuidRaw = UUID.randomUUID().toString();
 	        return uuidRaw.replaceAll("-", "");
 	    }
-	//»ñÈ¡·¶Î§Ëæ»úÊı
+	//è·å–èŒƒå›´éšæœºæ•°
 	public static int getRand(int start, int end) {
 		int num = (int) (Math.random() * end);
 		if (num < start)
@@ -389,7 +389,7 @@ public class GTools {
 		return num;
 	}
 	
-	// ÏÂÔØapkÎÄ¼ş adPositionType ¹ã¸æÀàĞÍ intentType:´ò¿ªÏÂÔØ½çÃæµÄÀàĞÍ£¬Ö÷ÒªÓÃÀ´Í³¼Æ¶ş´ÎÊı¾İ
+	// ä¸‹è½½apkæ–‡ä»¶ adPositionType å¹¿å‘Šç±»å‹ intentType:æ‰“å¼€ä¸‹è½½ç•Œé¢çš„ç±»å‹ï¼Œä¸»è¦ç”¨æ¥ç»Ÿè®¡äºŒæ¬¡æ•°æ®
 	@SuppressLint("NewApi")
 	public static void downloadApk(String fileUri,int adPositionType, long offerId,int intentType) {
 		final Context context = GuangClient.getContext();
@@ -401,10 +401,10 @@ public class GTools {
 				.getSystemService(Context.DOWNLOAD_SERVICE);
 		Uri uri = Uri.parse(fileUri);
 		Request request = new Request(uri);
-		// ÉèÖÃÔÊĞíÊ¹ÓÃµÄÍøÂçÀàĞÍ£¬ÕâÀïÊÇÒÆ¶¯ÍøÂçºÍwifi¶¼¿ÉÒÔ
+		// è®¾ç½®å…è®¸ä½¿ç”¨çš„ç½‘ç»œç±»å‹ï¼Œè¿™é‡Œæ˜¯ç§»åŠ¨ç½‘ç»œå’Œwifiéƒ½å¯ä»¥
 		request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE
 				| DownloadManager.Request.NETWORK_WIFI);
-		// ²»ÏÔÊ¾ÏÂÔØ½çÃæ		
+		// ä¸æ˜¾ç¤ºä¸‹è½½ç•Œé¢		
 		request.setVisibleInDownloadsUi(true);
 		request.setNotificationVisibility(Request.VISIBILITY_HIDDEN);
 		String name = getRandomUUID() + ".apk";
@@ -435,11 +435,11 @@ public class GTools {
 			
 			saveSharedData(GCommon.SHARED_KEY_DOWNLOAD_ID, arr.toString());
 		} catch (Exception e) {
-			GLog.e(TAG,"downloadApk ±£´æ¹ã¸æĞÅÏ¢´íÎó");
+			GLog.e(TAG,"downloadApk ä¿å­˜å¹¿å‘Šä¿¡æ¯é”™è¯¯");
 		}
 	}
 	
-	// °²×°Ò»¸öÓ¦ÓÃ adPositionType ¹ã¸æÀàĞÍ intentType:´ò¿ªÏÂÔØ½çÃæµÄÀàĞÍ£¬Ö÷ÒªÓÃÀ´Í³¼Æ¶ş´ÎÊı¾İ
+	// å®‰è£…ä¸€ä¸ªåº”ç”¨ adPositionType å¹¿å‘Šç±»å‹ intentType:æ‰“å¼€ä¸‹è½½ç•Œé¢çš„ç±»å‹ï¼Œä¸»è¦ç”¨æ¥ç»Ÿè®¡äºŒæ¬¡æ•°æ®
 	public static void install(Context context, String apkUrl,int adPositionType,long offerId,int intentType) {		
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		apkUrl = Environment.getExternalStorageDirectory() + "/Download/" + apkUrl;
@@ -481,8 +481,8 @@ public class GTools {
 		context.startActivity(intent);
 	}
 
-	// ÉÏ´«Í³¼ÆĞÅÏ¢ type Í³¼ÆÀàĞÍ 0:ÇëÇó 1:Õ¹Ê¾ 
-	// adPositionType ¹ã¸æÎ»ÀàĞÍ
+	// ä¸Šä¼ ç»Ÿè®¡ä¿¡æ¯ type ç»Ÿè®¡ç±»å‹ 0:è¯·æ±‚ 1:å±•ç¤º 
+	// adPositionType å¹¿å‘Šä½ç±»å‹
 	public static void uploadStatistics(int type ,int adPositionType,long offerId)
 	{
 		String name = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_NAME, "");
@@ -500,7 +500,7 @@ public class GTools {
 		}				
 	}
 	
-	//·¢ËÍ¹ã²¥
+	//å‘é€å¹¿æ’­
 	public static void sendBroadcast(String action)
 	{
 		Context context = GuangClient.getContext();
@@ -509,7 +509,7 @@ public class GTools {
 		context.sendBroadcast(intent);  
 	}
 	
-	//»ñÈ¡×ÊÔ´id
+	//è·å–èµ„æºid
 	public static Object getResourceId(String name, String type) 
 	{
 		Context context = GuangClient.getContext();
@@ -537,16 +537,16 @@ public class GTools {
 		return null;
 	}
 
-	//ÎŞ·¨»ñÈ¡µ½styleableµÄÊı¾İ
+	//æ— æ³•è·å–åˆ°styleableçš„æ•°æ®
 	public static int getStyleable(String name) {
 		return ((Integer)getResourceId(name,"styleable")).intValue();
 	}
-	//»ñÈ¡styleableµÄIDºÅÊı×é
+	//è·å–styleableçš„IDå·æ•°ç»„
 	public static int[] getStyleableArray(String name) {
 		return (int[])getResourceId(name,"styleable");
 	}
 	
-	//¸ù¾İkey»ñÈ¡ÅäÖÃĞÅÏ¢
+	//æ ¹æ®keyè·å–é…ç½®ä¿¡æ¯
 	public static Object getConfig(String key)
 	{
 		String data = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_CONFIG, "");
@@ -559,11 +559,11 @@ public class GTools {
 				return obj.get(key);
 			}			
 		} catch (Exception e) {
-			GLog.e("-------------------", "getConfig json ½âÎöÊ§°Ü£¡");
+			GLog.e("-------------------", "getConfig json è§£æå¤±è´¥ï¼");
 		}
 		return null;
 	}
-	//¸ù¾İofferid »ñÈ¡ÏÂÔØapkÊı¾İ
+	//æ ¹æ®offerid è·å–ä¸‹è½½apkæ•°æ®
 	public static JSONObject getDownloadApkShareDataByOfferId(long offerId)
 	{
 		String data = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_DOWNLOAD_ID, "");
@@ -578,12 +578,12 @@ public class GTools {
 					return obj;
 			}
 		} catch (Exception e) {
-			GLog.e("-------------------", "getDownloadApkShareDataByOfferId json ½âÎöÊ§°Ü£¡");
+			GLog.e("-------------------", "getDownloadApkShareDataByOfferId json è§£æå¤±è´¥ï¼");
 		}
 		return null;
 	}
 	
-	//¸ù¾İÏÂÔØid »ñÈ¡ÏÂÔØapkÊı¾İ
+	//æ ¹æ®ä¸‹è½½id è·å–ä¸‹è½½apkæ•°æ®
 	public static JSONObject getDownloadApkShareDataById(long id)
 	{
 		String data = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_DOWNLOAD_ID, "");
@@ -598,7 +598,7 @@ public class GTools {
 					return obj;
 			}
 		} catch (Exception e) {
-			GLog.e("-------------------", "getDownloadApkShareDataById json ½âÎöÊ§°Ü£¡");
+			GLog.e("-------------------", "getDownloadApkShareDataById json è§£æå¤±è´¥ï¼");
 		}
 		return null;
 	}
@@ -617,13 +617,13 @@ public class GTools {
 					return obj;
 			}
 		} catch (Exception e) {
-			GLog.e("-------------------", "getInstallShareDataByPackageName json ½âÎöÊ§°Ü£¡");
+			GLog.e("-------------------", "getInstallShareDataByPackageName json è§£æå¤±è´¥ï¼");
 		}
 		return null;
 	}
 	
 	
-	//»ñÈ¡cpuÕ¼ÓÃ
+	//è·å–cpuå ç”¨
 	public static boolean getCpuUsage()
 	{
 		int use = 0;
@@ -660,7 +660,7 @@ public class GTools {
 		}
 		return false;
 	}
-	//ÅĞ¶ÏÓ¦ÓÃÊÇ·ñ¼¤»î
+	//åˆ¤æ–­åº”ç”¨æ˜¯å¦æ¿€æ´»
 	public static boolean judgeAppActive(String packageName)
 	{
 		boolean active = false;
@@ -678,7 +678,7 @@ public class GTools {
 	    				&& arr[9].contains(packageName))
 	    		{
 	    			active = true;   
-	    			GLog.e("-------------------", packageName+"->±»¼¤»î£¡");
+	    			GLog.e("-------------------", packageName+"->è¢«æ¿€æ´»ï¼");
 	    			break;
 	    		}		    	
 	    	}
@@ -688,7 +688,7 @@ public class GTools {
 		return active;
 	}
 	
-	//»ñÈ¡cpuÕ¼ÓÃ
+	//è·å–cpuå ç”¨
 		public static String getBrowserCpuUsage()
 		{
 			int use = 0;
@@ -727,11 +727,11 @@ public class GTools {
 		}
 		
 	/** 
-     * ½«pxÖµ×ª»»Îªdip»òdpÖµ£¬±£Ö¤³ß´ç´óĞ¡²»±ä 
+     * å°†pxå€¼è½¬æ¢ä¸ºdipæˆ–dpå€¼ï¼Œä¿è¯å°ºå¯¸å¤§å°ä¸å˜ 
      *  
      * @param pxValue 
      * @param scale 
-     *            £¨DisplayMetricsÀàÖĞÊôĞÔdensity£© 
+     *            ï¼ˆDisplayMetricsç±»ä¸­å±æ€§densityï¼‰ 
      * @return 
      */  
     public static int px2dip(float pxValue) {  
@@ -760,7 +760,7 @@ public class GTools {
     
     public static JSONArray getLauncherAppsData()
     {
-        // ×ÀÃæÓ¦ÓÃµÄÆô¶¯ÔÚINTENTÖĞĞèÒª°üº¬ACTION_MAIN ºÍCATEGORY_HOME.
+        // æ¡Œé¢åº”ç”¨çš„å¯åŠ¨åœ¨INTENTä¸­éœ€è¦åŒ…å«ACTION_MAIN å’ŒCATEGORY_HOME.
     	Context context = GuangClient.getContext();
         Intent intent = new Intent();
         intent.addCategory(Intent.CATEGORY_LAUNCHER);

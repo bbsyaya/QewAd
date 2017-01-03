@@ -20,7 +20,7 @@ public class GCircleProgressView extends View {
 
 	private final int mTxtStrokeWidth = 2;
 
-	// »­Ô²ËùÔÚµÄ¾àĞÎÇøÓò
+	// ç”»åœ†æ‰€åœ¨çš„è·å½¢åŒºåŸŸ
 	private final RectF mRectF;
 
 	private final Paint mPaint;
@@ -51,25 +51,25 @@ public class GCircleProgressView extends View {
 			height = min;
 		}
 
-		// ÉèÖÃ»­±ÊÏà¹ØÊôĞÔ
+		// è®¾ç½®ç”»ç¬”ç›¸å…³å±æ€§
 		mPaint.setAntiAlias(true);
 		mPaint.setColor(Color.rgb(0xe9, 0xe9, 0xe9));
 		canvas.drawColor(Color.TRANSPARENT);
 		mPaint.setStrokeWidth(mCircleLineStrokeWidth);
 		mPaint.setStyle(Style.STROKE);
-		// Î»ÖÃ
-		mRectF.left = mCircleLineStrokeWidth / 2; // ×óÉÏ½Çx
-		mRectF.top = mCircleLineStrokeWidth / 2; // ×óÉÏ½Çy
-		mRectF.right = width - mCircleLineStrokeWidth / 2; // ×óÏÂ½Çx
-		mRectF.bottom = height - mCircleLineStrokeWidth / 2; // ÓÒÏÂ½Çy
+		// ä½ç½®
+		mRectF.left = mCircleLineStrokeWidth / 2; // å·¦ä¸Šè§’x
+		mRectF.top = mCircleLineStrokeWidth / 2; // å·¦ä¸Šè§’y
+		mRectF.right = width - mCircleLineStrokeWidth / 2; // å·¦ä¸‹è§’x
+		mRectF.bottom = height - mCircleLineStrokeWidth / 2; // å³ä¸‹è§’y
 
-		// »æÖÆÔ²È¦£¬½ø¶ÈÌõ±³¾°
+		// ç»˜åˆ¶åœ†åœˆï¼Œè¿›åº¦æ¡èƒŒæ™¯
 		//canvas.drawArc(mRectF, -90, 360, false, mPaint);
 		mPaint.setColor(Color.WHITE);
 		canvas.drawArc(mRectF, -90, ((float) mProgress / mMaxProgress) * 360,
 				false, mPaint);
 
-//		// »æÖÆ½ø¶ÈÎÄ°¸ÏÔÊ¾
+//		// ç»˜åˆ¶è¿›åº¦æ–‡æ¡ˆæ˜¾ç¤º
 //		mPaint.setStrokeWidth(mTxtStrokeWidth);
 //		String text = mProgress + "%";
 //		int textHeight = height / 4;

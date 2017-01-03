@@ -36,7 +36,7 @@ public class GModeUser {
 		else
 		{
 			GLog.e(TAG,"validateResult faiure!");
-			//·şÎñÆ÷»¹²»´æÔÚ ¾Í×¢²áĞÂÓÃ»§
+			//æœåŠ¡å™¨è¿˜ä¸å­˜åœ¨ å°±æ³¨å†Œæ–°ç”¨æˆ·
 			GUserController.getInstance().register(session);			
 		}
 	}
@@ -53,7 +53,7 @@ public class GModeUser {
 //		GTools.saveSharedData(GCommon.SHARED_KEY_PASSWORD, password);
 		GLog.e(TAG,"registResult success!");
 		GLog.e(TAG,"longin success!");
-		//×¢²á³É¹¦ÉÏ´«appĞÅÏ¢			
+		//æ³¨å†ŒæˆåŠŸä¸Šä¼ appä¿¡æ¯			
 		GUserController.getInstance().loginSuccess();
 	}
 	

@@ -38,8 +38,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * @author by Ğ¡Óã
- *	appÏÂÔØ½çÃæ
+ * @author by å°é±¼
+ *	appä¸‹è½½ç•Œé¢
  */
 public class QLDownActivity extends Activity {
 	private LinearLayout ll;  
@@ -47,7 +47,7 @@ public class QLDownActivity extends Activity {
 	private static Activity context;
 	private QLHorizontalListView horizontalListView;
 	private QLExpandableTextView expandableTextView; 
-	//ÏÂÔØ
+	//ä¸‹è½½
 	private ProgressBar buttonDown;
 	private TextView textView_Down;
 	private ImageView imageViewTop;
@@ -58,7 +58,7 @@ public class QLDownActivity extends Activity {
 	private TextView textViewFZ;
 	private TextView textAppUpdata;
 	private TextView textViewXjj;
-	//Êı¾İË¢ĞÂ
+	//æ•°æ®åˆ·æ–°
 	private ImageView imageViewUpdata;
 	
 	private QLHorizontalListViewAdapter adapter;
@@ -112,7 +112,7 @@ public class QLDownActivity extends Activity {
 		Intent intent = getIntent();
 		intent_open_type = intent.getIntExtra(GCommon.INTENT_OPEN_DOWNLOAD, 0);
 		ad_position_type = intent.getIntExtra(GCommon.AD_POSITION_TYPE, 1);
-		//×Ô¼º´ò¿ª½çÃæ£¬ĞèÒªÉÏ´«Í³¼Æ
+		//è‡ªå·±æ‰“å¼€ç•Œé¢ï¼Œéœ€è¦ä¸Šä¼ ç»Ÿè®¡
 		if(GCommon.OPEN_DOWNLOAD_TYPE_SELF == intent_open_type)
 		{
 			GTools.uploadStatistics(GCommon.DOUBLE_SHOW,ad_position_type,offerId);
@@ -134,7 +134,7 @@ public class QLDownActivity extends Activity {
 		imageViewTop.setImageBitmap(bm);
 		
 		textAppName.setText(obj.getString("name"));
-		textDownNum.setText("ÏÂÔØÁ¿£º"+obj.getInt("apk_downloads")+"´Î");
+		textDownNum.setText("ä¸‹è½½é‡ï¼š"+obj.getInt("apk_downloads")+"æ¬¡");
 		textViewXjj.setText(obj.getString("apk_summary"));
 		textAppVersion.setText(obj.getString("apk_version"));
 		textAppSize.setText(obj.getDouble("apk_size")+"");
@@ -183,7 +183,7 @@ public class QLDownActivity extends Activity {
 				list.add(obj2);
 			}
 		}
-		//Ìí¼ÓÊÊÅäÆ÷
+		//æ·»åŠ é€‚é…å™¨
 		adapter =new QLHorizontalListViewAdapter(context, list);
 		horizontalListView.setAdapter(adapter);
 		
@@ -192,13 +192,13 @@ public class QLDownActivity extends Activity {
 		int size = list.size();	
 		LayoutParams layout =  horizontalListView.getLayoutParams();
 		layout.width = width/5*size + width/60*2*(2*size-1);
-		//ÉèÖÃÊÓÍ¼Î»ÖÃ
+		//è®¾ç½®è§†å›¾ä½ç½®
 		horizontalListView.setX(width/2-layout.width/2);
 	}
 	
 	private void addEvents()
 	{
-		//ÏÂÔØÓ¦ÓÃ
+		//ä¸‹è½½åº”ç”¨
 		buttonDown.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")
 			@Override
@@ -254,22 +254,22 @@ public class QLDownActivity extends Activity {
 					if(d_pro < 100)
 						textView_Down.setText(d_pro+"%");
 					else
-						textView_Down.setText("ÏÂÔØÍê³É");
+						textView_Down.setText("ä¸‹è½½å®Œæˆ");
 				}
 				else if(msg.what == d_what_pause)
 				{
-					textView_Down.setText("¼ÌĞø");
+					textView_Down.setText("ç»§ç»­");
 				}
 				else if(msg.what == d_what_resume)
 				{
-					textView_Down.setText("ÔİÍ£");
+					textView_Down.setText("æš‚åœ");
 				}
 				super.handleMessage(msg);
 			}
 			
 		};
 		
-		//Ë¢ĞÂÍÆ¼öÓ¦ÓÃ¡¢¸üĞÂÊı¾İ
+		//åˆ·æ–°æ¨èåº”ç”¨ã€æ›´æ–°æ•°æ®
 	     imageViewUpdata.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				List<JSONObject> listjson = new ArrayList<JSONObject>();			    
@@ -284,12 +284,12 @@ public class QLDownActivity extends Activity {
 			    	list.add(obj);
 			    }			     
 				horizontalListView.setAdapter(new QLHorizontalListViewAdapter(context,list));
-				Toast.makeText(context, "Ë¢ĞÂ³É¹¦", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "åˆ·æ–°æˆåŠŸ", Toast.LENGTH_SHORT).show();
 			  }
 		});
 	     
 	     /**
-		 * µ×²¿Ó¦ÓÃListViewÊÊÅäÆ÷¡¢µã»÷ÍÆ¼öÓ¦ÓÃ£¬»ñÈ¡ÏÂ±í£¬ÏÔÊ¾ÏêÏ¸ÄÚÈİ
+		 * åº•éƒ¨åº”ç”¨ListViewé€‚é…å™¨ã€ç‚¹å‡»æ¨èåº”ç”¨ï¼Œè·å–ä¸‹è¡¨ï¼Œæ˜¾ç¤ºè¯¦ç»†å†…å®¹
 		 */
 		horizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -317,17 +317,17 @@ public class QLDownActivity extends Activity {
 	
 
 	/**
-	 * »ñµÃÉÏÏÂÎÄ
+	 * è·å¾—ä¸Šä¸‹æ–‡
 	 * @return 
 	 */
 	public static Context getContext() {
-		//ĞèÒªÏÔÊ¾µÄÓ¦ÓÃÍ¼Æ¬
+		//éœ€è¦æ˜¾ç¤ºçš„åº”ç”¨å›¾ç‰‡
 		return context;
 	}
 	
 	
 
-	//»ñÈ¡×ÊÔ´id
+	//è·å–èµ„æºid
 	public static Object mGetResourceId(String name, String type,Context context) 
 	{
 		String className = context.getPackageName() +".R";
@@ -403,14 +403,14 @@ public class QLDownActivity extends Activity {
                 	d_handler.sendEmptyMessage(d_what);
                     break;     
                 case DownloadManager.STATUS_SUCCESSFUL:     
-                    //Íê³É    
+                    //å®Œæˆ    
                 	d_handler.sendEmptyMessage(d_what);
-                    GLog.e("------------------", "ÏÂÔØÍê³É");    
+                    GLog.e("------------------", "ä¸‹è½½å®Œæˆ");    
                     //dowanloadmanager.remove(lastDownloadId);   
                     unRegisterContentObserver();
                     break;     
                 case DownloadManager.STATUS_FAILED:     
-                    //Çå³ıÒÑÏÂÔØµÄÄÚÈİ£¬ÖØĞÂÏÂÔØ    
+                    //æ¸…é™¤å·²ä¸‹è½½çš„å†…å®¹ï¼Œé‡æ–°ä¸‹è½½    
                     GLog.e("---------------", "STATUS_FAILED");    
                     dowanloadmanager.remove(lastDownloadId);  
                     unRegisterContentObserver();
@@ -435,44 +435,44 @@ public class QLDownActivity extends Activity {
 	
 //	private void doCollect() {
 //		// TODO Auto-generated method stub
-//		textFengXiang.setText("·ÖÏí");
+//		textFengXiang.setText("åˆ†äº«");
 //		textFengXiang.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
 //				// TODO Auto-generated method stub
-//				Toast.makeText(context,"´Ë¹¦ÄÜÔİÎ´¿ª·Å£¬¾¡ÇëÆÚ´ı", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(context,"æ­¤åŠŸèƒ½æš‚æœªå¼€æ”¾ï¼Œå°½è¯·æœŸå¾…", Toast.LENGTH_SHORT).show();
 //			}
 //		});
 //		
 //		
-//		//ÊÕ²Ø¡¢´´½¨×ÀÃæ¿ì½İ
+//		//æ”¶è—ã€åˆ›å»ºæ¡Œé¢å¿«æ·
 //		textCollect.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View arg0) {
 //				try {
 //			    Intent shortcut = new Intent(  
 //			    "com.android.launcher.action.INSTALL_SHORTCUT"); 
-//			    // ²»ÔÊĞíÖØ½¨  
+//			    // ä¸å…è®¸é‡å»º  
 //			    shortcut.putExtra("duplicate", false);  
-//			    // »ñµÃÓ¦ÓÃÃû×Ö¡¢ÉèÖÃÃû×Ö  ¡¢»ñÈ¡Ó¦ÓÃpushId
+//			    // è·å¾—åº”ç”¨åå­—ã€è®¾ç½®åå­—  ã€è·å–åº”ç”¨pushId
 //			    String p = obj.getString("pushId");
 //			    String name = showJsonObj.getString("name");
 //			    shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME,name);
-//			    // »ñÈ¡Í¼±ê¡¢ÉèÖÃÍ¼±ê  
+//			    // è·å–å›¾æ ‡ã€è®¾ç½®å›¾æ ‡  
 //			    Bitmap bmp = BitmapFactory.decodeFile(context.getFilesDir().getPath()+"/"+showJsonObj.getString("icon_path"));
 //			    shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON, bmp);
-//			    // ÉèÖÃÒâÍ¼ºÍ¿ì½İ·½Ê½¹ØÁª³ÌĞò  
+//			    // è®¾ç½®æ„å›¾å’Œå¿«æ·æ–¹å¼å…³è”ç¨‹åº  
 //			    Intent launcherIntent = new Intent();
 //		        launcherIntent.setAction(Intent.ACTION_MAIN);
-//		        //ÒâÍ¼Ğ¯´øÊı¾İ
+//		        //æ„å›¾æºå¸¦æ•°æ®
 //		        launcherIntent.putExtra(APP_SC_PUSHID, p);
 //		        launcherIntent.putExtra(PUSH_TYPE, push_type);
 //		        launcherIntent.setClass(context, QLDownActivity.class);
 //		        launcherIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 //		        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, launcherIntent);
-//                // ·¢ËÍ¹ã²¥
+//                // å‘é€å¹¿æ’­
 //                sendBroadcast(shortcut);                
-//                Toast.makeText(context,"ÊÕ²Ø³É¹¦£¡", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context,"æ”¶è—æˆåŠŸï¼", Toast.LENGTH_SHORT).show();
 //				} catch (JSONException e) {
 //					// TODO Auto-generated catch block
 //					e.printStackTrace();

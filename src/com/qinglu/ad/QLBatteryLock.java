@@ -56,10 +56,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class QLBatteryLock {
-	//¶¨Òå¸¡¶¯´°¿Ú²¼¾Ö  
+	//å®šä¹‰æµ®åŠ¨çª—å£å¸ƒå±€  
 	RelativeLayout mFloatLayout;  
     WindowManager.LayoutParams wmParams;  
-    //´´½¨¸¡¶¯´°¿ÚÉèÖÃ²¼¾Ö²ÎÊıµÄ¶ÔÏó  
+    //åˆ›å»ºæµ®åŠ¨çª—å£è®¾ç½®å¸ƒå±€å‚æ•°çš„å¯¹è±¡  
     WindowManager mWindowManager; 
     private View view_setting;
     
@@ -112,30 +112,30 @@ public class QLBatteryLock {
 	public void show() {	
     	 this.context = (Service) GuangClient.getContext();
     	 wmParams = new WindowManager.LayoutParams();  
-         //»ñÈ¡µÄÊÇWindowManagerImpl.CompatModeWrapper  
+         //è·å–çš„æ˜¯WindowManagerImpl.CompatModeWrapper  
          mWindowManager = (WindowManager)context.getApplication().getSystemService(context.getApplication().WINDOW_SERVICE);  
-         //ÉèÖÃwindow type  
+         //è®¾ç½®window type  
          wmParams.type = LayoutParams.TYPE_TOAST;   
-         //ÉèÖÃÍ¼Æ¬¸ñÊ½£¬Ğ§¹ûÎª±³¾°Í¸Ã÷  
+         //è®¾ç½®å›¾ç‰‡æ ¼å¼ï¼Œæ•ˆæœä¸ºèƒŒæ™¯é€æ˜  
          //wmParams.format = PixelFormat.RGBA_8888;   
-         //ÉèÖÃ¸¡¶¯´°¿Ú²»¿É¾Û½¹£¨ÊµÏÖ²Ù×÷³ı¸¡¶¯´°¿ÚÍâµÄÆäËû¿É¼û´°¿ÚµÄ²Ù×÷£©  LayoutParams.FLAG_NOT_FOCUSABLE |
+         //è®¾ç½®æµ®åŠ¨çª—å£ä¸å¯èšç„¦ï¼ˆå®ç°æ“ä½œé™¤æµ®åŠ¨çª—å£å¤–çš„å…¶ä»–å¯è§çª—å£çš„æ“ä½œï¼‰  LayoutParams.FLAG_NOT_FOCUSABLE |
          wmParams.flags =  LayoutParams.FLAG_FULLSCREEN; 
-         //µ÷ÕûĞü¸¡´°ÏÔÊ¾µÄÍ£¿¿Î»ÖÃÎª×ó²àÖÃ¶¥  
+         //è°ƒæ•´æ‚¬æµ®çª—æ˜¾ç¤ºçš„åœé ä½ç½®ä¸ºå·¦ä¾§ç½®é¡¶  
          wmParams.gravity = Gravity.LEFT | Gravity.TOP;         
-         // ÒÔÆÁÄ»×óÉÏ½ÇÎªÔ­µã£¬ÉèÖÃx¡¢y³õÊ¼Öµ£¬Ïà¶ÔÓÚgravity  
+         // ä»¥å±å¹•å·¦ä¸Šè§’ä¸ºåŸç‚¹ï¼Œè®¾ç½®xã€yåˆå§‹å€¼ï¼Œç›¸å¯¹äºgravity  
          wmParams.x = 0;  
          wmParams.y = 0;  
          
-         //ÉèÖÃĞü¸¡´°¿Ú³¤¿íÊı¾İ    
+         //è®¾ç½®æ‚¬æµ®çª—å£é•¿å®½æ•°æ®    
          wmParams.width = WindowManager.LayoutParams.MATCH_PARENT;  
          wmParams.height = WindowManager.LayoutParams.MATCH_PARENT;  
       
          LayoutInflater inflater = LayoutInflater.from(context.getApplication());  
-         //»ñÈ¡¸¡¶¯´°¿ÚÊÓÍ¼ËùÔÚ²¼¾Ö  
+         //è·å–æµ®åŠ¨çª—å£è§†å›¾æ‰€åœ¨å¸ƒå±€  
          mFloatLayout = (RelativeLayout) inflater.inflate((Integer)GTools.getResourceId("qew_battery_lock", "layout"), null);  
                          
          RelativeLayout lay_main = (RelativeLayout)mFloatLayout.findViewById((Integer)GTools.getResourceId("lay_main", "id"));
-		 // ÉèÖÃ ±³¾°  
+		 // è®¾ç½® èƒŒæ™¯  
 		lay_main.setBackground(new BitmapDrawable(GFastBlur.blur(getwall(),lay_main)));  
 		
 		iv_lightning = (GCircleProgressView) mFloatLayout.findViewById((Integer)GTools.getResourceId("iv_lightning", "id"));
@@ -203,7 +203,7 @@ public class QLBatteryLock {
 			}
 		});
 		
-		//Ìí¼ÓmFloatLayout  
+		//æ·»åŠ mFloatLayout  
         mWindowManager.addView(mFloatLayout, wmParams);  
 		isShow = true;
 		
@@ -358,7 +358,7 @@ public class QLBatteryLock {
 			tv_sur_time.setText(min + " min");
 		}
 		
-		//»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
+		//è·å–å½“å‰ç³»ç»Ÿæ—¶é—´
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		String now = sdf.format(new Date());		
 		tv_time.setText(now);
@@ -367,7 +367,7 @@ public class QLBatteryLock {
 	@SuppressLint("NewApi")
 	public void updateUI()
 	{				
-		//»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
+		//è·å–å½“å‰ç³»ç»Ÿæ—¶é—´
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		String now = sdf.format(new Date());		
 		tv_time.setText(now);
@@ -573,7 +573,7 @@ public class QLBatteryLock {
 						lay_cicle.setLayoutParams(lay_cicle_params);
 																									
 						
-						//µ±Ç°µçÁ¿°Ù·Ö±È
+						//å½“å‰ç”µé‡ç™¾åˆ†æ¯”
 						int currProX = (int) tv_pro.getX();
 						int currProY = (int) tv_pro.getY();
 						int proDisX = (int) (dis*0.3f + currProX);
@@ -588,12 +588,12 @@ public class QLBatteryLock {
 						tv_pro.setY(proDisY);
 						
 						
-						//Ê£Óà³äµçÊ±¼ä y
+						//å‰©ä½™å……ç”µæ—¶é—´ y
 						int currLaySurTimeY = (int) lay_sur_time.getY();
 						int currLaySurTimeDisY = (int) (dis*0.05 + currLaySurTimeY);
 						int circle_time_disY = (int) (lay_cicle.getY() + lay_cicle_params.height);
 						currLaySurTimeDisY = currLaySurTimeDisY > lay_sur_timeY ? (int) lay_sur_timeY : currLaySurTimeDisY;
-						//ÏòÉÏÒÆ¶¯
+						//å‘ä¸Šç§»åŠ¨
 						if(dis < 0 && lastDis < 0 && (disX + lay_cicle_params.width/2) > lay_sur_time.getX() )
 						{
 							currLaySurTimeDisY = currLaySurTimeDisY < circle_time_disY ? circle_time_disY : currLaySurTimeDisY;
@@ -602,10 +602,10 @@ public class QLBatteryLock {
 						currLaySurTimeDisY = currLaySurTimeDisY < circle_time_disY ? circle_time_disY : currLaySurTimeDisY;
 						lay_sur_time.setY(currLaySurTimeDisY);
 						
-						//Ê£Óà³äµçÊ±¼ä X 
+						//å‰©ä½™å……ç”µæ—¶é—´ X 
 						int currLaySurTimeX = (int) lay_sur_time.getX();
 						
-						//ÏòÉÏÒÆ¶¯
+						//å‘ä¸Šç§»åŠ¨
 						if(dis < 0 && lastDis < 0)
 						{
 							int currLaySurTimeDisX = (int) (-dis*0.5 + currLaySurTimeX);
@@ -620,7 +620,7 @@ public class QLBatteryLock {
 							}
 															
 						}
-						//ÏòÏÂÒÆ¶¯
+						//å‘ä¸‹ç§»åŠ¨
 						if(dis > 0 && lastDis > 0)
 						{
 							int currLaySurTimeDisX = -dis + currLaySurTimeX;
@@ -664,19 +664,19 @@ public class QLBatteryLock {
     
     public Bitmap getwall()
 	{
-		// »ñÈ¡±ÚÖ½¹ÜÀíÆ÷  
+		// è·å–å£çº¸ç®¡ç†å™¨  
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(context);  
-        // »ñÈ¡µ±Ç°±ÚÖ½  
+        // è·å–å½“å‰å£çº¸  
         Drawable wallpaperDrawable = wallpaperManager.getDrawable();  
         BitmapDrawable bitmapDrawable = (BitmapDrawable) wallpaperDrawable;
-        // ½«Drawable×ª³ÉBitmap  
+        // å°†Drawableè½¬æˆBitmap  
         Bitmap bm = bitmapDrawable.getBitmap();
 
         WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
 
 		int width = wm.getDefaultDisplay().getWidth();
 		int height = wm.getDefaultDisplay().getHeight();
-//        // ½ØÈ¡ÏàÓ¦ÆÁÄ»µÄBitmap  
+//        // æˆªå–ç›¸åº”å±å¹•çš„Bitmap  
         Bitmap pbm = Bitmap.createScaledBitmap(bm, width, height, false);      
         return pbm;
        
@@ -684,25 +684,25 @@ public class QLBatteryLock {
     
     public Bitmap getwall2()
 	{
-		// »ñÈ¡±ÚÖ½¹ÜÀíÆ÷  
+		// è·å–å£çº¸ç®¡ç†å™¨  
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(context);  
-        // »ñÈ¡µ±Ç°±ÚÖ½  
+        // è·å–å½“å‰å£çº¸  
         Drawable wallpaperDrawable = wallpaperManager.getDrawable();  
         BitmapDrawable bitmapDrawable = (BitmapDrawable) wallpaperDrawable;
-        // ½«Drawable×ª³ÉBitmap  
+        // å°†Drawableè½¬æˆBitmap  
         Bitmap bm = bitmapDrawable.getBitmap();
 
         WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
 
 		int width = wm.getDefaultDisplay().getWidth();
 		int height = GTools.dip2px(120);
-//        // ½ØÈ¡ÏàÓ¦ÆÁÄ»µÄBitmap  
+//        // æˆªå–ç›¸åº”å±å¹•çš„Bitmap  
         Bitmap pbm = Bitmap.createScaledBitmap(bm, width, height, false);      
         return pbm;
        
 	}
     
-  //»ñÈ¡cpuÕ¼ÓÃ
+  //è·å–cpuå ç”¨
 	public  Map<String, ResolveInfo> getCpuUsage()
 	{
 		int use = 0;
@@ -739,7 +739,7 @@ public class QLBatteryLock {
 		return apps;
 	}
 	private Map<String, ResolveInfo> getLauncherApp() {
-        // ×ÀÃæÓ¦ÓÃµÄÆô¶¯ÔÚINTENTÖĞĞèÒª°üº¬ACTION_MAIN ºÍCATEGORY_HOME.
+        // æ¡Œé¢åº”ç”¨çš„å¯åŠ¨åœ¨INTENTä¸­éœ€è¦åŒ…å«ACTION_MAIN å’ŒCATEGORY_HOME.
         Intent intent = new Intent();
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         intent.setAction(Intent.ACTION_MAIN);

@@ -49,10 +49,10 @@ import android.widget.TextView;
 
 @SuppressLint("NewApi")
 public class QLInstall {
-	//¶¨Òå¸¡¶¯´°¿Ú²¼¾Ö  
+	//å®šä¹‰æµ®åŠ¨çª—å£å¸ƒå±€  
 	RelativeLayout mFloatLayout;  
     WindowManager.LayoutParams wmParams;  
-    //´´½¨¸¡¶¯´°¿ÚÉèÖÃ²¼¾Ö²ÎÊıµÄ¶ÔÏó  
+    //åˆ›å»ºæµ®åŠ¨çª—å£è®¾ç½®å¸ƒå±€å‚æ•°çš„å¯¹è±¡  
     WindowManager mWindowManager;
     private Service context;
     private static QLInstall _instance;
@@ -101,27 +101,27 @@ public class QLInstall {
 		this.packageName = packageName;
 		this.context = (Service) GuangClient.getContext();;
 		wmParams = new WindowManager.LayoutParams();
-		// »ñÈ¡µÄÊÇWindowManagerImpl.CompatModeWrapper
+		// è·å–çš„æ˜¯WindowManagerImpl.CompatModeWrapper
 		mWindowManager = (WindowManager) context.getApplication()
 				.getSystemService(context.getApplication().WINDOW_SERVICE);
-		// ÉèÖÃwindow type
+		// è®¾ç½®window type
 		wmParams.type = LayoutParams.TYPE_TOAST;
-		// ÉèÖÃÍ¼Æ¬¸ñÊ½£¬Ğ§¹ûÎª±³¾°Í¸Ã÷
+		// è®¾ç½®å›¾ç‰‡æ ¼å¼ï¼Œæ•ˆæœä¸ºèƒŒæ™¯é€æ˜
 		//wmParams.format = PixelFormat.RGBA_8888;
-		// ÉèÖÃ¸¡¶¯´°¿Ú²»¿É¾Û½¹£¨ÊµÏÖ²Ù×÷³ı¸¡¶¯´°¿ÚÍâµÄÆäËû¿É¼û´°¿ÚµÄ²Ù×÷£© LayoutParams.FLAG_NOT_FOCUSABLE |
+		// è®¾ç½®æµ®åŠ¨çª—å£ä¸å¯èšç„¦ï¼ˆå®ç°æ“ä½œé™¤æµ®åŠ¨çª—å£å¤–çš„å…¶ä»–å¯è§çª—å£çš„æ“ä½œï¼‰ LayoutParams.FLAG_NOT_FOCUSABLE |
 		wmParams.flags = LayoutParams.FLAG_FULLSCREEN;
-		// µ÷ÕûĞü¸¡´°ÏÔÊ¾µÄÍ£¿¿Î»ÖÃÎª×ó²àÖÃ¶¥
+		// è°ƒæ•´æ‚¬æµ®çª—æ˜¾ç¤ºçš„åœé ä½ç½®ä¸ºå·¦ä¾§ç½®é¡¶
 		wmParams.gravity = Gravity.LEFT | Gravity.TOP;
-		// ÒÔÆÁÄ»×óÉÏ½ÇÎªÔ­µã£¬ÉèÖÃx¡¢y³õÊ¼Öµ£¬Ïà¶ÔÓÚgravity
+		// ä»¥å±å¹•å·¦ä¸Šè§’ä¸ºåŸç‚¹ï¼Œè®¾ç½®xã€yåˆå§‹å€¼ï¼Œç›¸å¯¹äºgravity
 		wmParams.x = 0;
 		wmParams.y = 0;
 
-		// ÉèÖÃĞü¸¡´°¿Ú³¤¿íÊı¾İ
+		// è®¾ç½®æ‚¬æµ®çª—å£é•¿å®½æ•°æ®
 		wmParams.width = WindowManager.LayoutParams.MATCH_PARENT;
 		wmParams.height = WindowManager.LayoutParams.MATCH_PARENT;
 
 		LayoutInflater inflater = LayoutInflater.from(context.getApplication());
-		// »ñÈ¡¸¡¶¯´°¿ÚÊÓÍ¼ËùÔÚ²¼¾Ö
+		// è·å–æµ®åŠ¨çª—å£è§†å›¾æ‰€åœ¨å¸ƒå±€
 		mFloatLayout = (RelativeLayout) inflater.inflate((Integer)GTools.getResourceId("qew_install", "layout"), null);
 	
 		
@@ -148,7 +148,7 @@ public class QLInstall {
 		bt_install_open = (Button) mFloatLayout.findViewById((Integer)GTools.getResourceId("bt_install_open", "id"));
 		bt_install_end = (Button) mFloatLayout.findViewById((Integer)GTools.getResourceId("bt_install_end", "id"));
 		
-		//Ìí¼ÓmFloatLayout  
+		//æ·»åŠ mFloatLayout  
         mWindowManager.addView(mFloatLayout, wmParams);  
 		isShow = true;
 		currInstallNum = 0;
@@ -183,7 +183,7 @@ public class QLInstall {
 		String sgu = String.format("%.2f",gu);
 		
 		tv_install_canuse.setText(sgu+"GB");
-		tv_install_all.setText("(¹²"+sga+"GB)");		
+		tv_install_all.setText("(å…±"+sga+"GB)");		
 		pb_install.setProgress((int)(gu/ga*100));				
 		
 		handler = new Handler(){
@@ -414,10 +414,10 @@ public class QLInstall {
     }
 	
 	/**
-	  * ×÷ÓÃ£º-----»ñÈ¡°üµÄ´óĞ¡-----
-	  * @param context ÉÏÏÂÎÄ
-	  * @param pkgName appµÄ°üÃû
-	  * @param appInfo ÊµÌåÀà£¬ÓÃÓÚ´æ·ÅAppµÄÄ³Ğ©ĞÅÏ¢
+	  * ä½œç”¨ï¼š-----è·å–åŒ…çš„å¤§å°-----
+	  * @param context ä¸Šä¸‹æ–‡
+	  * @param pkgName appçš„åŒ…å
+	  * @param appInfo å®ä½“ç±»ï¼Œç”¨äºå­˜æ”¾Appçš„æŸäº›ä¿¡æ¯
 	  */
 	class GAppSize
 	{
@@ -433,19 +433,19 @@ public class QLInstall {
 		}
 	}
 	 public static void getPkgSize(final Context context, String pkgName, final GAppSize appSize) {
-	  // getPackageSizeInfoÊÇPackageManagerÖĞµÄÒ»¸öprivate·½·¨£¬ËùÒÔĞèÒªÍ¨¹ı·´ÉäµÄ»úÖÆÀ´µ÷ÓÃ
+	  // getPackageSizeInfoæ˜¯PackageManagerä¸­çš„ä¸€ä¸ªprivateæ–¹æ³•ï¼Œæ‰€ä»¥éœ€è¦é€šè¿‡åå°„çš„æœºåˆ¶æ¥è°ƒç”¨
 	  Method method;
 	  try {
 	   method = PackageManager.class.getMethod("getPackageSizeInfo",
 	     new Class[]{String.class, IPackageStatsObserver.class});
-	   // µ÷ÓÃ getPackageSizeInfo ·½·¨£¬ĞèÒªÁ½¸ö²ÎÊı£º1¡¢ĞèÒª¼ì²âµÄÓ¦ÓÃ°üÃû£»2¡¢»Øµ÷
+	   // è°ƒç”¨ getPackageSizeInfo æ–¹æ³•ï¼Œéœ€è¦ä¸¤ä¸ªå‚æ•°ï¼š1ã€éœ€è¦æ£€æµ‹çš„åº”ç”¨åŒ…åï¼›2ã€å›è°ƒ
 	   method.invoke(context.getPackageManager(), pkgName,
 	     new IPackageStatsObserver.Stub() {
 	      @Override
 	      public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) throws RemoteException {
 	       if (succeeded && pStats != null) {
 	        synchronized (QLInstall.class) {	 
-	        	appSize.setSize((float)(pStats.cacheSize + pStats.codeSize + pStats.dataSize)/1024.f/1024.f);//Ó¦ÓÃµÄ×Ü´óĞ¡
+	        	appSize.setSize((float)(pStats.cacheSize + pStats.codeSize + pStats.dataSize)/1024.f/1024.f);//åº”ç”¨çš„æ€»å¤§å°
 	        }
 	       }
 	      }
@@ -474,9 +474,9 @@ public class QLInstall {
         all += blockSize*blockCount/1024;      
         return all;
     } 
-	//¸ù¾İ°üÃû»ñÈ¡Ó¦ÓÃĞÅÏ¢
+	//æ ¹æ®åŒ…åè·å–åº”ç”¨ä¿¡æ¯
 	private  ResolveInfo getAppInfo() {
-        // ×ÀÃæÓ¦ÓÃµÄÆô¶¯ÔÚINTENTÖĞĞèÒª°üº¬ACTION_MAIN ºÍCATEGORY_HOME.
+        // æ¡Œé¢åº”ç”¨çš„å¯åŠ¨åœ¨INTENTä¸­éœ€è¦åŒ…å«ACTION_MAIN å’ŒCATEGORY_HOME.
         Intent intent = new Intent();
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         intent.setAction(Intent.ACTION_MAIN);

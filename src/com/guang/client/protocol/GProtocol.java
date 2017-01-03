@@ -12,7 +12,7 @@ import com.guang.client.tools.GLog;
 
 
 /**
- * ×Ô¶¨ÒåĞ­Òé »ùÓÚjson
+ * è‡ªå®šä¹‰åè®® åŸºäºjson
  * 
  * @author guang
  * 
@@ -43,7 +43,7 @@ public class GProtocol {
 			Method m = c.getMethod(methodName, args);
 			m.invoke(c, session, data.getString("body"));
 		} catch (Exception e) {
-			GLog.e(TAG,"Êı¾İ½âÎöÊ§°Ü£¡" + e.getMessage());
+			GLog.e(TAG,"æ•°æ®è§£æå¤±è´¥ï¼" + e.getMessage());
 		}
 	}
 

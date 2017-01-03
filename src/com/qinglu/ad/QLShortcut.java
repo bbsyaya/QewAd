@@ -38,21 +38,21 @@ public class QLShortcut {
 						
 			Intent shortcut = new Intent(  
 					"com.android.launcher.action.INSTALL_SHORTCUT");
-			// ²»ÔÊĞíÖØ½¨
+			// ä¸å…è®¸é‡å»º
 			shortcut.putExtra("duplicate", false);
-			// »ñµÃÓ¦ÓÃÃû×Ö¡¢ÉèÖÃÃû×Ö ¡¢
+			// è·å¾—åº”ç”¨åå­—ã€è®¾ç½®åå­— ã€
 			shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);
-			// »ñÈ¡Í¼±ê¡¢ÉèÖÃÍ¼±ê
+			// è·å–å›¾æ ‡ã€è®¾ç½®å›¾æ ‡
 			Bitmap bmp = BitmapFactory.decodeFile(context.getFilesDir().getPath()
 					+ "/" + apk_icon_path);
 			shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON, bmp);
-			// ÉèÖÃÒâÍ¼ºÍ¿ì½İ·½Ê½¹ØÁª³ÌĞò
+			// è®¾ç½®æ„å›¾å’Œå¿«æ·æ–¹å¼å…³è”ç¨‹åº
 			String url = "www.baidu.com";
 			Intent intent = new  Intent(Intent.ACTION_VIEW, Uri.parse(url));
 	        intent.addCategory(Intent.CATEGORY_DEFAULT);
 	       
 			shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent);
-			// ·¢ËÍ¹ã²¥
+			// å‘é€å¹¿æ’­
 			context.sendBroadcast(shortcut);   
 			
 			GOfferController.getInstance().setOfferTag(offerId);

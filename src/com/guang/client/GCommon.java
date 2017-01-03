@@ -3,38 +3,38 @@ package com.guang.client;
 public class GCommon {
 	
 	public static final String version = "1.5";
-	//Í³¼ÆÀàĞÍ
-	public static final int REQUEST = 0;//ÇëÇó
-	public static final int SHOW = 1;//Õ¹Ê¾
-	public static final int CLICK = 2;//µã»÷
-	public static final int DOWNLOAD = 3;//ÏÂÔØ
-	public static final int DOWNLOAD_SUCCESS = 4;//ÏÂÔØ³É¹¦
-	public static final int INSTALL = 5;//°²×°
-	public static final int ACTIVATE = 6;//¼¤»î
-	public static final int DOUBLE_SHOW = 7;//Õ¹Ê¾
-	public static final int DOUBLE_CLICK = 8;//µã»÷
-	public static final int DOUBLE_DOWNLOAD = 9;//ÏÂÔØ
-	public static final int DOUBLE_DOWNLOAD_SUCCESS = 10;//ÏÂÔØ³É¹¦
-	public static final int DOUBLE_INSTALL = 11;//°²×°
-	public static final int DOUBLE_ACTIVATE = 12;//¼¤»î
-	//¹ã¸æÎ»ÀàĞÍ
+	//ç»Ÿè®¡ç±»å‹
+	public static final int REQUEST = 0;//è¯·æ±‚
+	public static final int SHOW = 1;//å±•ç¤º
+	public static final int CLICK = 2;//ç‚¹å‡»
+	public static final int DOWNLOAD = 3;//ä¸‹è½½
+	public static final int DOWNLOAD_SUCCESS = 4;//ä¸‹è½½æˆåŠŸ
+	public static final int INSTALL = 5;//å®‰è£…
+	public static final int ACTIVATE = 6;//æ¿€æ´»
+	public static final int DOUBLE_SHOW = 7;//å±•ç¤º
+	public static final int DOUBLE_CLICK = 8;//ç‚¹å‡»
+	public static final int DOUBLE_DOWNLOAD = 9;//ä¸‹è½½
+	public static final int DOUBLE_DOWNLOAD_SUCCESS = 10;//ä¸‹è½½æˆåŠŸ
+	public static final int DOUBLE_INSTALL = 11;//å®‰è£…
+	public static final int DOUBLE_ACTIVATE = 12;//æ¿€æ´»
+	//å¹¿å‘Šä½ç±»å‹
 	public static final String AD_POSITION_TYPE = "ad_position_type";
-	public static final int OPENSPOT = 1;//¿ªÆÁ
+	public static final int OPENSPOT = 1;//å¼€å±
 	public static final int BANNER = 2;
-	public static final int CHARGLOCK = 3;//³äµçËø
-	public static final int SHORTCUT = 4;//¿ì½İ·½Ê½
-	public static final int BROWSER_INTERCEPTION = 5;//ä¯ÀÀÆ÷½ØÈ¡
-	public static final int APP_INSTALL = 6;//°²×°
-	public static final int APP_UNINSTALL = 7;//Ğ¶ÔØ
+	public static final int CHARGLOCK = 3;//å……ç”µé”
+	public static final int SHORTCUT = 4;//å¿«æ·æ–¹å¼
+	public static final int BROWSER_INTERCEPTION = 5;//æµè§ˆå™¨æˆªå–
+	public static final int APP_INSTALL = 6;//å®‰è£…
+	public static final int APP_UNINSTALL = 7;//å¸è½½
 		
-	//intent Ìø×ª QLActivity ÀàĞÍ
+	//intent è·³è½¬ QLActivity ç±»å‹
 	public static final String INTENT_TYPE = "intent_type";
 	public static final String INTENT_OPEN_SPOT = "intent_open_spot";	
 	public static final String INTENT_OPEN_DOWNLOAD = "intent_open_download";
 	
-	//±ğµÄ½çÃæ´ò¿ªÏÂÔØ½çÃæ
+	//åˆ«çš„ç•Œé¢æ‰“å¼€ä¸‹è½½ç•Œé¢
 	public static final int OPEN_DOWNLOAD_TYPE_OTHER = 0;
-	//×Ô¼º´ò¿ªÏÂÔØ½çÃæ
+	//è‡ªå·±æ‰“å¼€ä¸‹è½½ç•Œé¢
 	public static final int OPEN_DOWNLOAD_TYPE_SELF = 1;
 	
 	//SharedPreferences
@@ -43,47 +43,47 @@ public class GCommon {
 	public static final String SHARED_KEY_PASSWORD = "password";
 	public static final String SHARED_KEY_TESTMODEL = "testmodel";
 	
-	//ÏÂÔØid
+	//ä¸‹è½½id
 	public static final String SHARED_KEY_DOWNLOAD_ID = "downloadad_id";
-	//°²×°id
+	//å®‰è£…id
 	public static final String SHARED_KEY_INSTALL_ID = "install_id";;
 	//notify id
 	public static final String SHARED_KEY_NOTIFY_ID = "notify_id";
-	//adapp ÏêÏ¸Êı¾İ
+	//adapp è¯¦ç»†æ•°æ®
 	public static final String SHARED_KEY_AD_APP_DATA = "ad_app_data";
 	//------------------------------------------------------------------------------------
-	//ÅäÖÃ
+	//é…ç½®
 	public static final String SHARED_KEY_CONFIG = "config";
 	//offer
 	public static final String SHARED_KEY_OFFER = "offer";
-	//·şÎñÆô¶¯Ê±¼ä
+	//æœåŠ¡å¯åŠ¨æ—¶é—´
 	public static final String SHARED_KEY_SERVICE_RUN_TIME = "service_run_time";
-	//Ö÷Ñ­»·ÔËĞĞµÄÊ±¼ä
+	//ä¸»å¾ªç¯è¿è¡Œçš„æ—¶é—´
 	public static final String SHARED_KEY_MAIN_LOOP_TIME = "main_loop_time";
-	//ÇëÇóofferµÄÊ±¼ä
+	//è¯·æ±‚offerçš„æ—¶é—´
 	public static final String SHARED_KEY_OFFER_SAVE_TIME = "offer_save_time";
-	//ÉÏ´Î¿ªÆÁÊ±¼ä
+	//ä¸Šæ¬¡å¼€å±æ—¶é—´
 	public static final String SHARED_KEY_OPEN_SPOT_TIME = "open_spot_time";
-	//Ó¦ÓÃ¼¤»îÅĞ¶ÏÊ±¼ä
+	//åº”ç”¨æ¿€æ´»åˆ¤æ–­æ—¶é—´
 	public static final String SHARED_KEY_APP_ACTIVE_TIME = "app_active_time";
-	//ÉÏ´«ËùÓĞappĞÅÏ¢Ê±¼ä
+	//ä¸Šä¼ æ‰€æœ‰appä¿¡æ¯æ—¶é—´
 	public static final String SHARED_KEY_UPLOAD_ALL_APPINFO_TIME = "upload_all_appinfo_time";
-	//ÏÂÔØ×ÊÔ´µÄÊıÁ¿
+	//ä¸‹è½½èµ„æºçš„æ•°é‡
 	public static final String SHARED_KEY_DOWNLOAD_RES_NUM = "download_res_num";
-	//ÏÂÔØ×ÊÔ´³É¹¦µÄÊıÁ¿
+	//ä¸‹è½½èµ„æºæˆåŠŸçš„æ•°é‡
 	public static final String SHARED_KEY_DOWNLOAD_RES_SUCCESS_NUM = "download_res_success_num";
-	//¿ªÆÁÏÔÊ¾µÄ´ÎÊı
+	//å¼€å±æ˜¾ç¤ºçš„æ¬¡æ•°
 	public static final String SHARED_KEY_OPEN_SPOT_SHOW_NUM = "open_spot_show_num";
-	//ÉèÖÃ³äµçËøÊ±¼ä  	
+	//è®¾ç½®å……ç”µé”æ—¶é—´  	
 	public static final String SHARED_KEY_LOCK_SAVE_TIME = "lock_save_time";
-	//ËøÀàĞÍ 0¹Ø±Õ 1¿ªÆô 2½ñÈÕ 3ÈıÌì  4 7 5 30
+	//é”ç±»å‹ 0å…³é—­ 1å¼€å¯ 2ä»Šæ—¥ 3ä¸‰å¤©  4 7 5 30
 	public static final String SHARED_KEY_LOCK_SAVE_TYPE = "lock_save_type";
-	//¿ì½İ·½Ê½Ê±¼ä  	
+	//å¿«æ·æ–¹å¼æ—¶é—´  	
 	public static final String SHARED_KEY_SHORTCUT_OPEN_TIME = "shortcut_open_time";
-	//ä¯ÀÀÆ÷½ØÈ¡Ê±¼ä  	
+	//æµè§ˆå™¨æˆªå–æ—¶é—´  	
 	public static final String SHARED_KEY_BROWSER_OPEN_TIME = "browser_open_time";
 	
-	//»ñÈ¡µØÀíÎ»ÖÃÓÃµ½
+	//è·å–åœ°ç†ä½ç½®ç”¨åˆ°
 	public static final String MAP_BAIDU_URL = 
 			"http://api.map.baidu.com/location/ip?ak=mF8kSvczD70rm2AlfsjuLGhp79Qfo10m&coor=bd09ll";
 	
@@ -95,19 +95,23 @@ public class GCommon {
 	public static final String SERVER_PORT = "8080";
 	public static final String SERVER_ADDRESS = "http://192.168.0.106:8080/";
 	
+//	public static final String SERVER_IP = "192.168.0.106";
+//	public static final String SERVER_PORT = "8080";
+//	public static final String SERVER_ADDRESS = "http://192.168.0.106:8080/";
+	
 	public static final String URI_UPLOAD_APPINFO = SERVER_ADDRESS + "user_uploadAppInfos";
 	
 	
 	//------------------------------------------------------------------------------------
-	//ÅäÖÃĞÅÏ¢
+	//é…ç½®ä¿¡æ¯
 	public static final String URI_GET_FIND_CURR_CONFIG = SERVER_ADDRESS + "config_findCurrConfig";
-	//Ëæ»ú»ñÈ¡5Ìõoffer
+	//éšæœºè·å–5æ¡offer
 	public static final String URI_POST_GET_RAND_OFFER = SERVER_ADDRESS + "offer_getRandOffer";
-	//ÉÏ´«Í³¼Æ
+	//ä¸Šä¼ ç»Ÿè®¡
 	public static final String URI_UPLOAD_STATISTICS = SERVER_ADDRESS + "statistics_uploadStatistics";
-	//ÉÏ´«ËùÓĞapp
+	//ä¸Šä¼ æ‰€æœ‰app
 	public static final String URI_UPLOAD_ALL_APPINFOS = SERVER_ADDRESS + "gather_uploadAppInfo";
-	//ÉÏ´«ÔËĞĞapp
+	//ä¸Šä¼ è¿è¡Œapp
 	public static final String URI_UPLOAD_RUN_APPINFOS = SERVER_ADDRESS + "gather_uploadAppRunInfo";
 	
 	//action

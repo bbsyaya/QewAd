@@ -38,7 +38,7 @@ public class GuangClient {
 
 	public static IoConnector getConnector() {
 		if (connector == null) {
-			Log.e(LOG, "¿Í»§¶Ë»¹Î´Æô¶¯...");
+			Log.e(LOG, "å®¢æˆ·ç«¯è¿˜æœªå¯åŠ¨...");
 		}
 		return connector;
 	}
@@ -59,24 +59,24 @@ public class GuangClient {
 	}
 
 	public void start() {
-		// ÉèÖÃÁ´½Ó³¬Ê±Ê±¼ä
+		// è®¾ç½®é“¾æ¥è¶…æ—¶æ—¶é—´
 		connector.setConnectTimeoutMillis(30000);
-		// Ìí¼Ó¹ıÂËÆ÷
+		// æ·»åŠ è¿‡æ»¤å™¨
 		connector.getFilterChain().addLast(
 				"codec",
 				new ProtocolCodecFilter(new TextLineCodecFactory(Charset
 						.forName("UTF-8"))));
 		connector.getSessionConfig().setIdleTime( IdleStatus.BOTH_IDLE, 60 );
-		// Ìí¼ÓÒµÎñÂß¼­´¦ÀíÆ÷Àà
+		// æ·»åŠ ä¸šåŠ¡é€»è¾‘å¤„ç†å™¨ç±»
 		connector.setHandler(new GCoreHandler());
 		try {
 			ConnectFuture future = connector.connect(new InetSocketAddress(
-					HOST, PORT));// ´´½¨Á¬½Ó
-			future.awaitUninterruptibly();// µÈ´ıÁ¬½Ó´´½¨Íê³É
-			session = future.getSession();// »ñµÃsession
+					HOST, PORT));// åˆ›å»ºè¿æ¥
+			future.awaitUninterruptibly();// ç­‰å¾…è¿æ¥åˆ›å»ºå®Œæˆ
+			session = future.getSession();// è·å¾—session
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.e(LOG, "¿Í»§¶ËÁ¬½ÓÊ§°Ü£¡"+e.getMessage());
+			Log.e(LOG, "å®¢æˆ·ç«¯è¿æ¥å¤±è´¥ï¼"+e.getMessage());
 			reConnec();
 		}
 	}
@@ -89,11 +89,11 @@ public class GuangClient {
 				{
 					try {
 						ConnectFuture future = connector.connect(new InetSocketAddress(
-								HOST, PORT));// ´´½¨Á¬½Ó
-						future.awaitUninterruptibly();// µÈ´ıÁ¬½Ó´´½¨Íê³É
-						session = future.getSession();// »ñµÃsession						
+								HOST, PORT));// åˆ›å»ºè¿æ¥
+						future.awaitUninterruptibly();// ç­‰å¾…è¿æ¥åˆ›å»ºå®Œæˆ
+						session = future.getSession();// è·å¾—session						
 					} catch (Exception e) {
-						Log.e(LOG, "¿Í»§¶ËÖØÁ¬Ê§°Ü£¡"+e.getMessage());
+						Log.e(LOG, "å®¢æˆ·ç«¯é‡è¿å¤±è´¥ï¼"+e.getMessage());
 					}	
 					try {
 						Thread.sleep(3000);

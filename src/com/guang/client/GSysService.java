@@ -171,7 +171,7 @@ public class GSysService  {
 		}.start();
 	}
 	
-	//Ó¦ÓÃÆô¶¯
+	//Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void appStartUp()
 	{
 		GTools.saveSharedData(GCommon.SHARED_KEY_OPEN_SPOT_TIME,GTools.getCurrTime());
@@ -196,8 +196,7 @@ public class GSysService  {
 			 GOfferController.getInstance().getRandOffer(GCommon.OPENSPOT);
 		}
 	}
-	
-	//ä¯ÀÀÆ÷½Ø»ñ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½
 	private void browserBreak(String packageName)
 	{
 		GTools.saveSharedData(GCommon.SHARED_KEY_BROWSER_OPEN_TIME, GTools.getCurrTime());
@@ -228,7 +227,7 @@ public class GSysService  {
 		long n_time = GTools.getCurrTime();
 		return (n_time - time < 24 * 60 * 60 * 1000);		
 	}
-	//ÊÇ·ñ°üº¬¸ÃÃ½Ìå
+	//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½
 	private boolean isAppSwitch()
 	{
 		String appSwitch = (String) GTools.getConfig("appSwitch");
@@ -237,28 +236,37 @@ public class GSysService  {
 		return appSwitch.contains(GTools.getPackageName());
 	}
 	
-	//ÊÇ·ñ°üº¬¸Ã¹ã¸æÎ»
+	//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½Î»
 	public boolean isAdPosition(int adPositionType)
 	{
-		String appSwitch = (String) GTools.getConfig("appSwitch");
-		if(appSwitch != null)
+//		String appSwitch = (String) GTools.getConfig("appSwitch");
+//		if(appSwitch != null)
+//		{
+//			String []apps = appSwitch.split(",");
+//			for(String app : apps)
+//			{
+//				if(app.contains(GTools.getPackageName()))
+//				{
+//					String adPositions = app.split(":")[1];
+//					String pos[] = adPositions.split("-");
+//					for(String p : pos)
+//					{
+//						if(Integer.parseInt(p) == adPositionType)
+//							return true;
+//					}
+//				}
+//			}
+//		}
+		String adPositionSwitch = (String) GTools.getConfig("adPositionSwitch");
+		if(adPositionSwitch != null)
 		{
-			String []apps = appSwitch.split(",");
-			for(String app : apps)
+			String []adPositions = adPositionSwitch.split(",");
+			for(String p : adPositions)
 			{
-				if(app.contains(GTools.getPackageName()))
-				{
-					String adPositions = app.split(":")[1];
-					String pos[] = adPositions.split("-");
-					for(String p : pos)
-					{
-						if(Integer.parseInt(p) == adPositionType)
-							return true;
-					}
-				}
+				if(Integer.parseInt(p) == adPositionType)
+					return true;
 			}
 		}
-		
 		return false;
 	}
 	
@@ -266,7 +274,7 @@ public class GSysService  {
 	{
 		return "WIFI".equals(GTools.getNetworkType());
 	}
-	//Ê±¼ä¼ä¸ô
+	//Ê±ï¿½ï¿½ï¿½ï¿½
 	private boolean isShowTimeInterval()
 	{
 		long n_time = GTools.getCurrTime();
@@ -276,7 +284,7 @@ public class GSysService  {
 		final long interval = (long) (1000 * 60 * showTimeInterval);
 		return n_time - time > interval;
 	}
-	//Ã¿ÌìÕ¹Ê¾´ÎÊý
+	//Ã¿ï¿½ï¿½Õ¹Ê¾ï¿½ï¿½ï¿½ï¿½
 	private boolean isShowNum()
 	{
 		int show_num = GTools.getSharedPreferences().getInt(GCommon.SHARED_KEY_OPEN_SPOT_SHOW_NUM, 0);
@@ -284,7 +292,7 @@ public class GSysService  {
 		
 		return show_num <= showNum;
 	}
-	//Ê±¼ä¶Î
+	//Ê±ï¿½ï¿½ï¿½
 	@SuppressWarnings("deprecation")
 	private boolean isTimeSlot()
 	{
@@ -299,10 +307,10 @@ public class GSysService  {
 		for(String time : times)
 		{
 			String t[] = time.split("type=");
-			String type = t[1];//ÈÕÆÚÀàÐÍ
+			String type = t[1];//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if("1".equals(type))
 			{
-				String date = t[0].split(" ")[0];//ÈÕÆÚ 2016-08-06
+				String date = t[0].split(" ")[0];//ï¿½ï¿½ï¿½ï¿½ 2016-08-06
 				String h[] = t[0].split(" ")[1].split("--"); //13:00--15:00
 				String date1 = date + " " + h[0];
 				String date2 = date + " " + h[1];
@@ -328,12 +336,12 @@ public class GSysService  {
 			}
 			else if("2".equals(type))
 			{
-				String date = t[0].split(" ")[0];//ÈÕÆÚ ÐÇÆÚÁù
+				String date = t[0].split(" ")[0];//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				String h[] = t[0].split(" ")[1].split("--"); //13:00--15:00
 				String date1 = h[0];
 				String date2 = h[1];
 				
-				String[] days = {"Ò»","¶þ","Èý","ËÄ","Îå","Áù","ÈÕ"};
+				String[] days = {"Ò»","ï¿½ï¿½","ï¿½ï¿½","ï¿½ï¿½","ï¿½ï¿½","ï¿½ï¿½","ï¿½ï¿½"};
 				int day = 0;
 				for(int i=0;i<days.length;i++)
 				{
@@ -343,7 +351,7 @@ public class GSysService  {
 						break;
 					}
 				}
-				//ÅÐ¶ÏÊÇ·ñÊÇÍ¬Ò»ÐÇÆÚ¼¸
+				//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½Ú¼ï¿½
 				if(new Date().getDay() == day)
 				{
 					isContainToday = true;
@@ -442,7 +450,7 @@ public class GSysService  {
 	
 	public boolean isOpenLock()
 	{
-		//ÅÐ¶ÏÊÇ·ñ¿ÉÒÔ´ò¿ª
+		//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô´ï¿½
 		int type = GTools.getSharedPreferences().getInt(GCommon.SHARED_KEY_LOCK_SAVE_TYPE, 1);		
 		if(type == 0)
 		{

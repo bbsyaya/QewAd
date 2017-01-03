@@ -49,7 +49,7 @@ public class GOfferController {
 			GTools.saveSharedData(GCommon.SHARED_KEY_OFFER, rev.toString());
 			GTools.saveSharedData(GCommon.SHARED_KEY_OFFER_SAVE_TIME, GTools.getCurrTime());
 			
-			//ÏÂÔØÍ¼Æ¬
+			//ä¸‹è½½å›¾ç‰‡
 			try {
 				GTools.saveSharedData(GCommon.SHARED_KEY_DOWNLOAD_RES_NUM, 0);
 				GTools.saveSharedData(GCommon.SHARED_KEY_DOWNLOAD_RES_SUCCESS_NUM, 0);
@@ -136,7 +136,7 @@ public class GOfferController {
 		}
 		return false;
 	}
-	//µÃµ½Ò»ÌõÃ»ÓĞ±»±ê¼ÇµÄoffer
+	//å¾—åˆ°ä¸€æ¡æ²¡æœ‰è¢«æ ‡è®°çš„offer
 	public JSONObject getNoTagOffer()
 	{
 		int repeatNum = (Integer) GTools.getConfig("repeatNum");
@@ -171,11 +171,11 @@ public class GOfferController {
 			else
 				return arr.getJSONObject(result);
 		} catch (Exception e) {
-			GLog.e("----------------", "getNoTagOffer  json ½âÎöÊ§°Ü£¡");
+			GLog.e("----------------", "getNoTagOffer  json è§£æå¤±è´¥ï¼");
 		}
 		return null;
 	}
-	//ÎªofferÉèÖÃtag
+	//ä¸ºofferè®¾ç½®tag
 	public void setOfferTag(long id)
 	{
 		String data = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_OFFER, "");
@@ -201,10 +201,10 @@ public class GOfferController {
 			}
 			GTools.saveSharedData(GCommon.SHARED_KEY_OFFER, arr.toString());
 		} catch (Exception e) {
-			GLog.e("----------------", "setOfferTag  json ½âÎöÊ§°Ü£¡");
+			GLog.e("----------------", "setOfferTag  json è§£æå¤±è´¥ï¼");
 		}
 	}
-	//¸ù¾İid»ñÈ¡offer
+	//æ ¹æ®idè·å–offer
 	public JSONObject getOfferById(long id)
 	{
 		String data = GTools.getSharedPreferences().getString(GCommon.SHARED_KEY_OFFER, "");
@@ -219,7 +219,7 @@ public class GOfferController {
 				}
 			}
 		}catch (Exception e) {
-			GLog.e("----------------", "getOfferById  json ½âÎöÊ§°Ü£¡");
+			GLog.e("----------------", "getOfferById  json è§£æå¤±è´¥ï¼");
 		}
 		return null;
 	}
